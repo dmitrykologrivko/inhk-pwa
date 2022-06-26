@@ -18,16 +18,12 @@
     cursor: pointer;
 }
 
-.item:hover {
-    transition: background 0.5s linear;
-}
-
-.item_icon {
+.item__icon {
     width: 28px;
     height: 28px;
 }
 
-.item_title {
+.item__title {
     font-size: 0.8em;
 }
 
@@ -39,7 +35,7 @@
 }
 
 @media (min-width: 480px) {
-    .item_icon {
+    .item__icon {
         width: 64px;
         height: 64px;
     }

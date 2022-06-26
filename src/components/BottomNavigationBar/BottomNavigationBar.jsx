@@ -18,11 +18,11 @@ export function BottomNavigationBarItem(props) {
 
     return (
         <div className={styles.item} onClick={onClickHandler}>
-            <img className={styles.item_icon}
+            <img className={styles.item__icon}
                 src={props.isActive ? props.icon_active : props.icon}
                 alt={props.alt} />
             <br />
-            <span className={styles.item_title}
+            <span className={styles.item__title}
                 style={{ color: props.isActive ? props.primaryColor : '' }}>
                 {props.title}
             </span>
