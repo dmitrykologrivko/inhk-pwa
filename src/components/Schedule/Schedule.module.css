@@ -1,37 +1,86 @@
-.lesson {
-    display: flex;
-    margin-bottom: 20px;
+.lesson_wrapper {
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px 0px rgb(0 0 0 / 50%);
+    margin-bottom: 15px;
 }
 
-.lesson__number {
+.lesson {
     display: flex;
+}
+
+.lesson__time_interval {
+    min-width: 70px;
+    display: flex;
+    flex-flow: column;
     justify-content: center;
-    align-items: center;
-    width: 30px;
-    font-weight: bold;
-    /* background-color: #f9fafa; */
-    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
-    /* padding: 1.5em; */
-    margin-right: 15px;
-    border-radius: 4px;
+    text-align: center;
+}
+
+.lesson__time_interval__from {}
+
+.lesson__time_interval__to {}
+
+.lesson__progress_bar {
+    width: 2px;
+    border-radius: 1px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.lesson__progress_bar__counter {
+    width: 2px;
+    border-radius: 1px;
 }
 
 .lesson__info {
-    /* background-color: #f9fafa; */
-    /* padding: 1.5em; */
     width: 100%;
-    text-align: center;
-    border-radius: 4px;
-    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
-    padding-top: 0.7em;
-    padding-bottom: 0.7em;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.lesson__info li:not(:last-child) {
+    margin-bottom: 6px;
 }
 
 .lesson__info__subject {
+    display: inline-block;
+    margin-bottom: 6px;
     font-weight: bold;
-    padding-bottom: 100px;
 }
 
-.lesson__info__teacher {}
+.lesson__info__teacher {
+    display: inline-block;
+    margin-bottom: 6px;
+    color: #7a8284;
+}
 
-.lesson__info__place {}
+.lesson__info__teacher_icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+.lesson__info__classroom {
+    color: #7a8284;
+}
+
+.lesson__info__classroom_icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+.lesson_time_left {
+    min-width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 0 0 5px 5px;
+}

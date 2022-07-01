@@ -13,21 +13,97 @@ Default.args = {
     lessons: [
         {
             number: 1,
-            subject: 'Physics',
-            teacher: 'John',
-            place: '5'
+            timeInterval: {
+                from: (() => {
+                    const now = new Date();
+                    now.setHours(now.getHours() - 3);
+                    return now;
+                })(),
+                to: (() => {
+                    const now = new Date();
+                    now.setHours(now.getHours() - 2);
+                    return now;
+                })(),
+            },
+            info: [
+                {
+                    subject: 'Physics (practice)',
+                    teacher: 'John Smith',
+                    classRoom: '5'
+                },
+                {
+                    subject: 'Physics (practice)',
+                    teacher: 'Kate Smith',
+                    classRoom: '6'
+                }
+            ]
         },
         {
             number: 2,
-            subject: 'Mathematics',
-            teacher: 'Eva',
-            place: '405'
+            timeInterval: {
+                from: (() => {
+                    const now = new Date();
+                    now.setHours(now.getHours() - 1);
+                    return now;
+                })(),
+                to: (() => {
+                    const now = new Date();
+                    now.setHours(now.getHours() + 1);
+                    return now;
+                })(),
+            },
+            info: [
+                {
+                    subject: 'English',
+                    teacher: 'Lisa Williams',
+                    classRoom: '425'
+                }
+            ]
         },
         {
             number: 3,
-            subject: 'Informatics',
-            teacher: 'John / Eva',
-            place: '5 / 405'
+            timeInterval: {
+                from: (() => {
+                    const now = new Date();
+                    now.setHours(now.getHours() + 4);
+                    return now;
+                })(),
+                to: (() => {
+                    const now = new Date();
+                    now.setHours(now.getHours() + 5);
+                    return now;
+                })(),
+            },
+            info: [
+                {
+                    subject: 'Mathematics',
+                    teacher: 'Eva Johnson',
+                    classRoom: '405'
+                }
+            ]
         },
-    ]
+        {
+            number: 4,
+            timeInterval: {
+                from: (() => {
+                    const now = new Date();
+                    now.setHours(now.getHours() + 6);
+                    return now;
+                })(),
+                to: (() => {
+                    const now = new Date();
+                    now.setHours(now.getHours() + 7);
+                    return now;
+                })(),
+            },
+            info: [
+                {
+                    subject: 'Informatics',
+                    teacher: 'John Smith',
+                    classRoom: '5'
+                }
+            ]
+        },
+    ],
+    primaryColor: '#4da7fe'
 };
