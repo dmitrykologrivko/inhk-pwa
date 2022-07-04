@@ -1,5 +1,5 @@
 import React from 'react';
-import { Schedule } from './Schedule';
+import { Schedule } from './schedule-component';
 
 export default {
     title: 'Components/Schedule',
