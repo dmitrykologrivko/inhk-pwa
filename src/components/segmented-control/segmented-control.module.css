@@ -1,0 +1,17 @@
+.control {
+    display: flex;
+    border-radius: 4px;
+    border: 1px solid #7a8284;
+}
+
+.item {
+    width: 100%;
+    padding: 0.4em;
+    border-right: 1px solid #7a8284;
+    cursor: pointer;
+    text-align: center;
+}
+
+.item:last-child {
+    border-right: none;
+}

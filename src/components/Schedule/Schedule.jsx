@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import styles from './Schedule.module.css';
 import userIcon from './user-solid.svg';
 import locationIcon from './location-dot-solid.svg';
