@@ -109,5 +109,5 @@ dist
 # VS Code
 .vscode
 
-# Project specific
-database
+# MacOS specific
+.DS_Store
