@@ -1,0 +1,20 @@
+.simple_list_item {
+    background-color: white;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.simple_list_item__bottom_line {
+    border-bottom: 1px solid #7a8284;
+}
+
+.simple_list_item__text {
+    width: 100%;
+}
+
+.simple_list_item__icon {
+    width: 14px;
+    height: 14px;
+}

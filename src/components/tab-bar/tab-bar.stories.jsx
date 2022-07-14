@@ -1,6 +1,5 @@
 import React from 'react';
 import { TabBar, TabBarItem } from './tab-bar.component';
-import icon from './location-dot-solid.svg';
 
 export default {
     title: 'Components/Tab Bar',
