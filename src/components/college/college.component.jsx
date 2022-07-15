@@ -2,9 +2,25 @@ import { useState } from 'react';
 import { SearchInput } from '../search-input';
 import { SegmentedControl, SegmentedControlItem } from '../segmented-control';
 import { List } from '../list';
+import { SimpleListItem } from '../list-items';
+import { Margin } from '../spacing';
+import styles from './college.module.css';
 
 export const STUDENT_ROLE = 'student';
 export const TEACHER_ROLE = 'teacher';
+
+function CollegeList(props) {
+    return (
+        <List {...props}
+            render={(children) => (
+                <div className={styles.list}>
+                    {children}
+                </div>
+            )}>
+            {props.items.map((item, index) => <SimpleListItem key={index} object={item} />)}
+        </List>
+    );
+}
 
 export function College(props) {
     const [items, setItems] = useState(props.students);
@@ -30,7 +46,7 @@ export function College(props) {
                 items = props.teachers;
             }
 
-            return items.filter(item => item.text.search(query) === 0);
+            return items.filter(item => item.text.toLowerCase().search(query.toLowerCase()) === 0);
         });
     };
 
@@ -42,14 +58,16 @@ export function College(props) {
 
     return (
         <section>
-            <SearchInput onInputChange={onSearchInputChange} />
-            <br />
-            <SegmentedControl primaryColor={props.primaryColor}>
-                <SegmentedControlItem title='Группы' onClick={onStudentsControlClick} />
-                <SegmentedControlItem title='Преподаватели' onClick={onTeachersControlClick} />
-            </SegmentedControl>
-            <br />
-            <List items={items} onItemClicked={(_, object) => onListItemClick(object)} />
+            <Margin bottom={10}>
+                <SearchInput onInputChange={onSearchInputChange} />
+            </Margin>
+            <Margin bottom={10}>
+                <SegmentedControl primaryColor={props.primaryColor}>
+                    <SegmentedControlItem title='Группы' onClick={onStudentsControlClick} />
+                    <SegmentedControlItem title='Преподаватели' onClick={onTeachersControlClick} />
+                </SegmentedControl>
+            </Margin>
+            <CollegeList items={items} onItemClicked={(_, object) => onListItemClick(object)} />
         </section>
     );
 }

@@ -12,9 +12,9 @@ export function useSelectableItems(props) {
             items.push({
                 key: i,
                 index: i,
-                isActive: i === 0 ? true : false,
-                isFirst: i === 0 ? true : false,
-                isLast: i === children.length - 1 ? true : false
+                isActive: i === 0,
+                isFirst: i === 0,
+                isLast: i === children.length - 1
             });
         }
 
@@ -24,7 +24,7 @@ export function useSelectableItems(props) {
     const eventsDispatcher = {
         onClick: (index) => {
             setItems(items => items.map(item => {
-                return { ...item, isActive: item.index === index ? true : false };
+                return { ...item, isActive: item.index === index };
             }));
 
             if (props.onItemSelected) {

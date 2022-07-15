@@ -1,9 +1,9 @@
 .input_wrapper {
     display: flex;
     align-items: center;
-    padding: 4px;
-    border-radius: 4px;
-    background-color: #7a8284;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgb(228, 227, 233);
 }
 
 .input_icon {
@@ -15,10 +15,10 @@
 .input {
     width: 100%;
     border: none;
-    background-color: #7a8284;
+    background-color: rgb(228, 227, 233);
     padding: 0;
     margin: 0;
-    color: white;
+    color: black;
 }
 
 .input:focus {
@@ -26,23 +26,23 @@
 }
 
 .input::-webkit-input-placeholder {
-    color: #d3dee1;
+    color: rgb(142, 141, 147);
 }
 
 .input::-moz-placeholder {
-    color: #d3dee1;
+    color: rgb(142, 141, 147);
 }
 
 .input:-ms-input-placeholder {
-    color: #d3dee1;
+    color: rgb(142, 141, 147);
 }
 
 .input::-ms-input-placeholder {
-    color: #d3dee1;
+    color: rgb(142, 141, 147);
 }
 
 .input::placeholder {
-    color: #d3dee1;
+    color: rgb(142, 141, 147);
 }
 
 .input::-webkit-search-decoration,
