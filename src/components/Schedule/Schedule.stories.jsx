@@ -2,7 +2,7 @@ import React from 'react';
 import { Schedule } from './schedule.component';
 
 export default {
-    title: 'Components/Schedule/Schedule Table',
+    title: 'Components/Schedule/Schedule',
     component: Schedule,
 };
 
