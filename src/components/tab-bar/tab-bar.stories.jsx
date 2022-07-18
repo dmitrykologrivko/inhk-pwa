@@ -2,7 +2,7 @@ import React from 'react';
 import { TabBar, TabBarItem } from './tab-bar.component';
 
 export default {
-    title: 'Components/Tab Bar',
+    title: 'Components/Common/Tab Bar',
     component: TabBar,
 };
 

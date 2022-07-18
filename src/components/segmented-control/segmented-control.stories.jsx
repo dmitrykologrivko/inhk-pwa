@@ -2,7 +2,7 @@ import React from 'react';
 import { SegmentedControl, SegmentedControlItem } from './segmented-control.component';
 
 export default {
-    title: 'Components/Segmented Control',
+    title: 'Components/Common/Segmented Control',
     component: SegmentedControl,
 };
 

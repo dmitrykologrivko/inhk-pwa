@@ -2,7 +2,7 @@ import React from 'react';
 import { SearchInput } from './search-input.component';
 
 export default {
-    title: 'Components/Search Input',
+    title: 'Components/Common/Search Input',
     component: SearchInput,
 };
 

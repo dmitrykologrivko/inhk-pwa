@@ -2,7 +2,7 @@ import React from 'react';
 import { List } from './list.component';
 
 export default {
-    title: 'Components/List',
+    title: 'Components/Common/List',
     component: List,
 };
 
