@@ -1,3 +1,4 @@
+import { Card } from '../containers';
 import styles from './schedule.module.css';
 import userIcon from './user-solid.svg';
 import locationIcon from './location-dot-solid.svg';

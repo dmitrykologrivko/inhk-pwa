@@ -1,0 +1,10 @@
+.view_container {
+    background-color: #F2F1F6;
+    min-height: inherit;
+}
+
+.logout_icon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}

@@ -1,6 +1,7 @@
 import { News } from './news.component';
 import { Schedule } from './schedule.component';
 import { Margin } from '../spacing';
+import { FlexContainer } from '../containers';
 
 export function ScheduleFeed(props) {
     return (
@@ -11,7 +12,13 @@ export function ScheduleFeed(props) {
                         <News {...props} />
                     </Margin>
                 ) : ''}
-            <Schedule {...props} />
+            {props.lessons && props.lessons.length > 0 ? (
+                <Schedule {...props} />
+            ) : (
+                <FlexContainer justifyContent='center'>
+                    Нет текущего расписания
+                </FlexContainer>
+            )}
         </>
     );
 }

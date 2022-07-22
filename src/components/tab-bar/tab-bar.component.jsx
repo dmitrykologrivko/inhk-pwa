@@ -21,16 +21,16 @@ export function TabBarItem(props) {
 }
 
 export function TabBar(props) {
-    const style = {
-        primaryColor: props.primaryColor,
-        backgroundColor: `${props.backgroundColor}`,
-        borderTop: `1px solid ${props.borderTopColor}`
-    };
-
     const render = (children) => (
-        <section className={styles.bar} style={style}>
+        <div className={`${styles.bar} ${props.className}`}
+            style={{
+                ...props.style,
+                primaryColor: props.primaryColor,
+                backgroundColor: `${props.backgroundColor}`,
+                borderTop: `1px solid ${props.borderTopColor}`
+            }}>
             {children}
-        </section>
+        </div>
     );
 
     return (

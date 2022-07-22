@@ -1,1 +1,1 @@
-export { BottomNavigationBar, BottomNavigationBarItem } from './tab-bar.component';
+export { TabBar, TabBarItem } from './tab-bar.component';
