@@ -1,11 +1,8 @@
-import { Card } from '../containers';
 import styles from './schedule.module.css';
 import userIcon from './user-solid.svg';
 import locationIcon from './location-dot-solid.svg';
 
-const LESSON_COMPLETED_COLOR = '#48dd7c';
-
-export function Lesson({ lesson, primaryColor }) {
+export function Lesson({ lesson }) {
     const { timeInterval } = lesson;
     const timeFrom = timeInterval.from.getTime();
     const timeTo = timeInterval.to.getTime();
@@ -29,26 +26,24 @@ export function Lesson({ lesson, primaryColor }) {
     const isCompleted = timeNow > timeTo;
     const progress = isCompleted ? 100 : Math.trunc(100 - ((timeTo - timeNow) / ((timeTo - timeFrom) / 100)));
 
+    const lessonWrapperClasses = `${styles.lesson_wrapper}
+        ${isActive ? styles.lesson__active : isCompleted ? styles.lesson__completed : ''}`;
+
     return (
-        <div className={styles.lesson_wrapper} style={{
-            border: `2px solid ${isActive ? primaryColor : isCompleted ? LESSON_COMPLETED_COLOR : 'none'}`
-        }}>
+        <div className={lessonWrapperClasses}>
             <div className={styles.lesson}>
                 <div className={styles.lesson__time_interval}>
-                    <span className={styles.lesson__time_interval__from}
-                        style={{ color: primaryColor }}>
+                    <span className={styles.lesson__time_interval__from}>
                         {localeTimeFrom}
                     </span>
-                    <span className={styles.lesson__time_interval__to}
-                        style={{ color: primaryColor }}>
+                    <span className={styles.lesson__time_interval__to}>
                         {localeTimeTo}
                     </span>
                 </div>
 
-                <div className={styles.lesson__progress_bar}
-                    style={{ backgroundColor: primaryColor }}>
+                <div className={styles.lesson__progress_bar}>
                     <div className={styles.lesson__progress_bar__counter}
-                        style={{ height: `${progress}%`, backgroundColor: LESSON_COMPLETED_COLOR }} />
+                        style={{ height: `${progress}%`}} />
                 </div>
 
                 <ul className={styles.lesson__info}>
@@ -78,21 +73,17 @@ export function Lesson({ lesson, primaryColor }) {
             </div >
 
             <div className={styles.lesson_time_left}
-                style={{
-                    backgroundColor: primaryColor,
-                    border: `1px solid ${primaryColor}`,
-                    display: !isActive ? 'none' : ''
-                }}>
+                style={{ display: !isActive ? 'none' : '' }}>
                 {isActive ? `осталось ${timeLeft} минут` : ''}
             </div>
         </div>
     );
 }
 
-export function Schedule({ lessons, primaryColor }) {
+export function Schedule({ lessons }) {
     return (
         <section>
-            {lessons.map(lesson => <Lesson key={lesson.number} lesson={lesson} primaryColor={primaryColor} />)}
+            {lessons.map(lesson => <Lesson key={lesson.number} lesson={lesson} />)}
         </section>
     );
 }

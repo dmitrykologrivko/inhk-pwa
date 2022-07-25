@@ -59,94 +59,94 @@ const lessonsCache = [
             }
         ]
     },
-    // {
-    //     number: 3,
-    //     timeInterval: {
-    //         from: (() => {
-    //             const now = new Date();
-    //             now.setHours(now.getHours() + 4);
-    //             return now;
-    //         })(),
-    //         to: (() => {
-    //             const now = new Date();
-    //             now.setHours(now.getHours() + 5);
-    //             return now;
-    //         })(),
-    //     },
-    //     info: [
-    //         {
-    //             subject: 'Mathematics',
-    //             teacher: 'Eva Johnson',
-    //             classRoom: '405'
-    //         }
-    //     ]
-    // },
-    // {
-    //     number: 4,
-    //     timeInterval: {
-    //         from: (() => {
-    //             const now = new Date();
-    //             now.setHours(now.getHours() + 6);
-    //             return now;
-    //         })(),
-    //         to: (() => {
-    //             const now = new Date();
-    //             now.setHours(now.getHours() + 7);
-    //             return now;
-    //         })(),
-    //     },
-    //     info: [
-    //         {
-    //             subject: 'Informatics',
-    //             teacher: 'John Smith',
-    //             classRoom: '5'
-    //         }
-    //     ]
-    // },
-    // {
-    //     number: 5,
-    //     timeInterval: {
-    //         from: (() => {
-    //             const now = new Date();
-    //             now.setHours(now.getHours() + 6);
-    //             return now;
-    //         })(),
-    //         to: (() => {
-    //             const now = new Date();
-    //             now.setHours(now.getHours() + 7);
-    //             return now;
-    //         })(),
-    //     },
-    //     info: [
-    //         {
-    //             subject: 'Informatics',
-    //             teacher: 'John Smith',
-    //             classRoom: '5'
-    //         }
-    //     ]
-    // },
-    // {
-    //     number: 6,
-    //     timeInterval: {
-    //         from: (() => {
-    //             const now = new Date();
-    //             now.setHours(now.getHours() + 6);
-    //             return now;
-    //         })(),
-    //         to: (() => {
-    //             const now = new Date();
-    //             now.setHours(now.getHours() + 7);
-    //             return now;
-    //         })(),
-    //     },
-    //     info: [
-    //         {
-    //             subject: 'Informatics',
-    //             teacher: 'John Smith',
-    //             classRoom: '5'
-    //         }
-    //     ]
-    // },
+    {
+        number: 3,
+        timeInterval: {
+            from: (() => {
+                const now = new Date();
+                now.setHours(now.getHours() + 4);
+                return now;
+            })(),
+            to: (() => {
+                const now = new Date();
+                now.setHours(now.getHours() + 5);
+                return now;
+            })(),
+        },
+        info: [
+            {
+                subject: 'Mathematics',
+                teacher: 'Eva Johnson',
+                classRoom: '405'
+            }
+        ]
+    },
+    {
+        number: 4,
+        timeInterval: {
+            from: (() => {
+                const now = new Date();
+                now.setHours(now.getHours() + 6);
+                return now;
+            })(),
+            to: (() => {
+                const now = new Date();
+                now.setHours(now.getHours() + 7);
+                return now;
+            })(),
+        },
+        info: [
+            {
+                subject: 'Informatics',
+                teacher: 'John Smith',
+                classRoom: '5'
+            }
+        ]
+    },
+    {
+        number: 5,
+        timeInterval: {
+            from: (() => {
+                const now = new Date();
+                now.setHours(now.getHours() + 6);
+                return now;
+            })(),
+            to: (() => {
+                const now = new Date();
+                now.setHours(now.getHours() + 7);
+                return now;
+            })(),
+        },
+        info: [
+            {
+                subject: 'Informatics',
+                teacher: 'John Smith',
+                classRoom: '5'
+            }
+        ]
+    },
+    {
+        number: 6,
+        timeInterval: {
+            from: (() => {
+                const now = new Date();
+                now.setHours(now.getHours() + 6);
+                return now;
+            })(),
+            to: (() => {
+                const now = new Date();
+                now.setHours(now.getHours() + 7);
+                return now;
+            })(),
+        },
+        info: [
+            {
+                subject: 'Informatics',
+                teacher: 'John Smith',
+                classRoom: '5'
+            }
+        ]
+    },
 ];
 const primaryColor = '#4da7fe';
 

@@ -6,7 +6,11 @@ export default {
     component: News,
 };
 
-const Template = args => <News {...args} />
+const Template = args => (
+    <div style={{ padding: '8px', backgroundColor: 'var(--primary-bg-color)' }}>
+        <News {...args} />
+    </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {

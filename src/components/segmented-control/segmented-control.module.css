@@ -1,16 +1,22 @@
 .control {
     display: flex;
     border-radius: 6px;
-    border: 1px solid #7a8284;
+    border: 1px solid var(--primary-color);
     overflow: hidden;
 }
 
 .item {
     width: 100%;
     padding: 0.4em;
-    border-right: 1px solid #7a8284;
+    border-right: 1px solid var(--primary-color);
     cursor: pointer;
     text-align: center;
+}
+
+.item__active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
 }
 
 .item:last-child {

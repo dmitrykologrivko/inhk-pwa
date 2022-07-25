@@ -6,11 +6,14 @@ export default {
     component: College,
 };
 
-const Template = args => <College {...args}/>
+const Template = args => (
+    <div style={{ padding: '8px', backgroundColor: 'var(--primary-bg-color)' }}>
+        <College {...args} />
+    </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {
-    primaryColor: '#4da7fe',
     students: [
         {
             id: 1,

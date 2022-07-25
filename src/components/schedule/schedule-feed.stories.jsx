@@ -8,7 +8,11 @@ export default {
     component: ScheduleFeed,
 };
 
-const Template = args => <ScheduleFeed {...args} />
+const Template = args => (
+    <div style={{ padding: '8px', backgroundColor: 'var(--primary-bg-color)' }}>
+        <ScheduleFeed {...args} />
+    </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {

@@ -1,15 +1,16 @@
 import { SelectableList, SelectableListItem } from '../selectable-list';
+import { Space } from '../spacing';
 import styles from './tab-bar.module.css';
 
 export function TabBarItem(props) {
     const render = () => (
         <div className={styles.item}>
-            <img className={styles.item__icon}
-                src={props.isActive ? props.icon_active : props.icon}
-                alt={props.alt} />
-            <br />
+            <div className={`${styles.item__icon} ${props.isActive ? styles.item__icon__active : ''}`}>
+                {props.icon}
+            </div>
+            <Space size={5} />
             <span className={styles.item__title}
-                style={{ color: props.isActive ? props.primaryColor : '' }}>
+                style={{ color: props.isActive ? 'var(--primary-color)' : '' }}>
                 {props.title}
             </span>
         </div>
@@ -22,13 +23,7 @@ export function TabBarItem(props) {
 
 export function TabBar(props) {
     const render = (children) => (
-        <div className={`${styles.bar} ${props.className}`}
-            style={{
-                ...props.style,
-                primaryColor: props.primaryColor,
-                backgroundColor: `${props.backgroundColor}`,
-                borderTop: `1px solid ${props.borderTopColor}`
-            }}>
+        <div className={`${styles.bar} ${props.className}`}>
             {children}
         </div>
     );

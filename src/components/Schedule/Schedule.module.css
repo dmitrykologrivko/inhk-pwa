@@ -1,12 +1,19 @@
 .lesson_wrapper {
     border-radius: 10px;
-    /* box-shadow: 0px 1px 4px 0px rgb(0 0 0 / 50%); */
     margin-bottom: 15px;
     background-color: white;
 }
 
 .lesson {
     display: flex;
+}
+
+.lesson__active {
+    border: 2px solid var(--primary-color);
+}
+
+.lesson__completed {
+    border: 2px solid #48dd7c;
 }
 
 .lesson__time_interval {
@@ -17,20 +24,26 @@
     text-align: center;
 }
 
-.lesson__time_interval__from {}
+.lesson__time_interval__from {
+    color: var(--primary-color);
+}
 
-.lesson__time_interval__to {}
+.lesson__time_interval__to {
+    color: var(--primary-color);
+}
 
 .lesson__progress_bar {
     width: 2px;
     border-radius: 1px;
     margin-top: 4px;
     margin-bottom: 4px;
+    background-color: var(--primary-color);
 }
 
 .lesson__progress_bar__counter {
     width: 2px;
     border-radius: 1px;
+    background-color: #48dd7c;
 }
 
 .lesson__info {
@@ -80,6 +93,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     color: white;
     padding-top: 3px;
     padding-bottom: 3px;

@@ -6,7 +6,11 @@ export default {
     component: Schedule,
 };
 
-const Template = args => <Schedule {...args} />
+const Template = args => (
+    <div style={{ padding: '8px', backgroundColor: 'var(--primary-bg-color)' }}>
+        <Schedule {...args} />
+    </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -104,6 +108,5 @@ Default.args = {
                 }
             ]
         },
-    ],
-    primaryColor: '#4da7fe'
+    ]
 };

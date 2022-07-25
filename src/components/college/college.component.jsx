@@ -4,7 +4,7 @@ import { SegmentedControl, SegmentedControlItem } from '../segmented-control';
 import { List } from '../list';
 import { SimpleListItem } from '../list-items';
 import { Margin } from '../spacing';
-import styles from './college.module.css';
+import { Card } from '../containers';
 
 export const STUDENT_ROLE = 'student';
 export const TEACHER_ROLE = 'teacher';
@@ -13,9 +13,9 @@ function CollegeList(props) {
     return (
         <List {...props}
             render={(children) => (
-                <div className={styles.list}>
+                <Card>
                     {children}
-                </div>
+                </Card>
             )}>
             {props.items.map((item, index) => <SimpleListItem key={index} object={item} />)}
         </List>
@@ -57,17 +57,17 @@ export function College(props) {
     };
 
     return (
-        <section>
+        <div>
             <Margin bottom={10}>
                 <SearchInput onInputChange={onSearchInputChange} />
             </Margin>
             <Margin bottom={10}>
-                <SegmentedControl primaryColor={props.primaryColor}>
+                <SegmentedControl>
                     <SegmentedControlItem title='Группы' onClick={onStudentsControlClick} />
                     <SegmentedControlItem title='Преподаватели' onClick={onTeachersControlClick} />
                 </SegmentedControl>
             </Margin>
             <CollegeList items={items} onItemClicked={(_, object) => onListItemClick(object)} />
-        </section>
+        </div>
     );
 }
