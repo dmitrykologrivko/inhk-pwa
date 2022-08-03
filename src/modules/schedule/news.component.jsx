@@ -1,4 +1,4 @@
-import { Card } from '../containers';
+import { Card } from '../common/components/containers';
 import styles from './news.module.css';
 
 export function News({ news }) {

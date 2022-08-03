@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { SearchInput } from '../search-input';
-import { SegmentedControl, SegmentedControlItem } from '../segmented-control';
-import { List } from '../list';
-import { SimpleListItem } from '../list-items';
-import { Margin } from '../spacing';
-import { Card } from '../containers';
+import { SearchInput } from '../common/components/search-input';
+import { SegmentedControl, SegmentedControlItem } from '../common/components/segmented-control';
+import { List } from '../common/components/list';
+import { SimpleListItem } from '../common/components/list-items';
+import { Margin } from '../common/components/spacing';
+import { Card } from '../common/components/containers';
 
 export const STUDENT_ROLE = 'student';
 export const TEACHER_ROLE = 'teacher';

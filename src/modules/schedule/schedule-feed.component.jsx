@@ -1,7 +1,7 @@
 import { News } from './news.component';
 import { Schedule } from './schedule.component';
-import { Margin } from '../spacing';
-import { FlexContainer } from '../containers';
+import { Margin } from '../common/components/spacing';
+import { FlexContainer } from '../common/components/containers';
 
 export function ScheduleFeed(props) {
     return (

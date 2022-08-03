@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { ScheduleFeed } from './schedule-feed.component';
-import { Margin, Padding } from '../spacing';
-import { FlexContainer } from '../containers';
-import { PageHeading, PageHeadingSecondary } from '../titles';
-import { Spinner } from '../spinner';
-import { TryAgain } from '../errors';
+import { Margin, Padding } from '../common/components/spacing';
+import { FlexContainer } from '../common/components/containers';
+import { PageHeading, PageHeadingSecondary } from '../common/components/titles';
+import { Spinner } from '../common/components/spinner';
+import { TryAgain } from '../common/components/errors';
 import styles from './my-schedule-view.module.css';
 import logoutIcon from './arrow-right-from-bracket-solid.svg';
 

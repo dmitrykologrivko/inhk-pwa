@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabBar, TabBarItem } from './tab-bar.component';
-import { ReactComponent as CalendarIcon } from '../../images/calendar-day-solid.svg';
+import { ReactComponent as CalendarIcon } from '../../../../assets/images/calendar-day-solid.svg';
 
 console.log(CalendarIcon);
 
