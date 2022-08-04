@@ -1,4 +1,4 @@
-import { cloneElement, useState } from 'react'; 
+import { cloneElement, useState, useEffect } from 'react';
 
 export function useSelectableItems(props) {
     let children = Array.isArray(props.children)
@@ -20,6 +20,16 @@ export function useSelectableItems(props) {
 
         return items;
     });
+
+    useEffect(() => {
+        if (props.selectedIndex === undefined) {
+            return;
+        }
+
+        setItems(items => items.map(item => {
+            return { ...item, isActive: item.index === props.selectedIndex };
+        }));
+    }, [props.selectedIndex]);
 
     const eventsDispatcher = {
         onClick: (index) => {
