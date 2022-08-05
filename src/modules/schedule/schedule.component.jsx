@@ -1,9 +1,12 @@
+import {useTranslation} from 'react-i18next';
 import styles from './schedule.module.css';
 import userIcon from './user-solid.svg';
 import locationIcon from './location-dot-solid.svg';
 
-export function Lesson({ lesson }) {
-    const { timeInterval } = lesson;
+export function Lesson({lesson}) {
+    const {t} = useTranslation();
+
+    const {timeInterval} = lesson;
     const timeFrom = timeInterval.from.getTime();
     const timeTo = timeInterval.to.getTime();
     const timeNow = new Date().getTime();
@@ -43,7 +46,7 @@ export function Lesson({ lesson }) {
 
                 <div className={styles.lesson__progress_bar}>
                     <div className={styles.lesson__progress_bar__counter}
-                        style={{ height: `${progress}%`}} />
+                         style={{height: `${progress}%`}}/>
                 </div>
 
                 <ul className={styles.lesson__info}>
@@ -52,38 +55,38 @@ export function Lesson({ lesson }) {
                             <span className={styles.lesson__info__subject}>
                                 {current.subject}
                             </span>
-                            <br />
+                            <br/>
                             <span className={styles.lesson__info__teacher}>
                                 <img className={styles.lesson__info__teacher_icon}
-                                    src={userIcon}
-                                    alt='User icon' />
+                                     src={userIcon}
+                                     alt='User icon'/>
                                 {current.teacher}
                             </span>
-                            <br />
+                            <br/>
                             <span className={styles.lesson__info__classroom}>
                                 <img className={styles.lesson__info__classroom_icon}
-                                    src={locationIcon}
-                                    alt='Location icon' />
+                                     src={locationIcon}
+                                     alt='Location icon'/>
                                 {current.classRoom}
                             </span>
-                            <br />
+                            <br/>
                         </li>
                     )))}
                 </ul>
-            </div >
+            </div>
 
             <div className={styles.lesson_time_left}
-                style={{ display: !isActive ? 'none' : '' }}>
-                {isActive ? `осталось ${timeLeft} минут` : ''}
+                 style={{display: !isActive ? 'none' : ''}}>
+                {isActive ? t('timeLeft', {ns: 'schedule', time: timeLeft}) : ''}
             </div>
         </div>
     );
 }
 
-export function Schedule({ lessons }) {
+export function Schedule({lessons}) {
     return (
         <section>
-            {lessons.map(lesson => <Lesson key={lesson.number} lesson={lesson} />)}
+            {lessons.map(lesson => <Lesson key={lesson.number} lesson={lesson}/>)}
         </section>
     );
 }

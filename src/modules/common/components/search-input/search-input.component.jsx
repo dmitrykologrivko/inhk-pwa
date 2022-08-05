@@ -1,7 +1,7 @@
 import styles from './search-input.module.css';
 import magnifyingGlassIcon from './magnifying-glass-solid.svg';
 
-export function SearchInput({ onInputChange }) {
+export function SearchInput({ placeholder='Search', onInputChange }) {
     return (
         <div className={styles.input_wrapper}>
             <img className={styles.input_icon}
@@ -9,7 +9,7 @@ export function SearchInput({ onInputChange }) {
                 alt="Magnifying glass icon" />
             <input className={styles.input}
                 type='search'
-                placeholder='Search'
+                placeholder={placeholder}
                 onChange={(e) => {
                     e.preventDefault();
                     if (onInputChange) {
