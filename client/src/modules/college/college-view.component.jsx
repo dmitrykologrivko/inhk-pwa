@@ -8,45 +8,11 @@ import {TryAgain} from '../common/components/errors';
 import {College} from './college.component';
 import styles from './college-view.module.css';
 
-const students = [
-    {
-        id: 1,
-        text: 'IR-001'
-    },
-    {
-        id: 2,
-        text: 'IR-002'
-    },
-    {
-        id: 3,
-        text: 'TR-001'
-    }
-]
-const teachers = [
-    {
-        id: 1,
-        text: 'Lisa Williams'
-    },
-    {
-        id: 2,
-        text: 'Eva Johnson'
-    },
-    {
-        id: 3,
-        text: 'John Smith'
-    },
-    {
-        id: 4,
-        text: 'Eva Philips'
-    },
-]
-const primaryColor = '#4da7fe';
-
 export function CollegeView() {
     const {t} = useTranslation();
 
     const [isLoading, setIsLoading] = useState(true);
-    const [errorMesssage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         setTimeout(() => {
@@ -55,13 +21,13 @@ export function CollegeView() {
         }, 1000);
     }, [isLoading]);
 
-    const content = errorMesssage ? (
+    const content = errorMessage ? (
         <FlexContainer className={styles.view_container}
                        alignItems='center'
                        justifyContent='center'>
             <TryAgain onRequestAgain={() => {
             }}>
-                {errorMesssage}
+                {errorMessage}
             </TryAgain>
         </FlexContainer>
     ) : (
