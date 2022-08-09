@@ -1,22 +1,9 @@
 import './spinner-animation.css';
+import styles from './spinner.module.css';
 
-export function Spinner({
-    width = 50,
-    height = 50,
-    depth = 8,
-    duration = 1.5,
-    color = 'black',
-    secondaryColor = 'black'
-}) {
+export function Spinner({duration = 1.5}) {
     return (
-        <div style={{
-            width: `${width}px`,
-            height: `${height}px`,
-            border: `${depth}px solid ${secondaryColor}`,
-            borderTop: `${depth}px solid ${color}`,
-            borderRadius: '50%',
-            animation: `spinner ${duration}s linear infinite`,
-            WebkitAnimation: `spinner ${duration}s linear infinite`
-        }} />
+        <div className={styles.spinner}
+             style={{animation: `spinner ${duration}s linear infinite`}}/>
     );
 }

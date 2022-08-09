@@ -1,21 +1,19 @@
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {InhkService} from '../inhk';
-import {useAsyncTask} from '../common/hooks';
 import {Margin} from '../common/components/spacing';
 import {PageHeading} from '../common/components/titles';
 import {AsyncDataView} from '../common/components/views';
 import {College} from './college.component';
 import styles from './college-view.module.css';
 
-export function CollegeView() {
+export function CollegeView({ inhkService = new InhkService() }) {
     const {t} = useTranslation();
 
     const fetchData = useCallback(() => {
-        const service = new InhkService();
-        return Promise.all([service.getTeachers(), service.getGroups()])
+        return Promise.all([inhkService.getTeachers(), inhkService.getGroups()])
             .then(data => ({ teachers: data[0], students: data[1] }));
-    }, []);
+    }, [inhkService]);
 
     const render = data => (
         <>

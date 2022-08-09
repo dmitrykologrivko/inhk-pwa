@@ -5,8 +5,8 @@ import {
 } from './inhk.mappers';
 
 export class InhkService {
-    constructor() {
-        this.client = new InhkApiClient();
+    constructor(client = new InhkApiClient()) {
+        this.client = client;
     }
 
     async getTodaySchedule() {
