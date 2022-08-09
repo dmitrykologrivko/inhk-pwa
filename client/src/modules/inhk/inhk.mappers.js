@@ -3,5 +3,5 @@ export async function mapTeachers(dto) {
 }
 
 export async function mapGroups(dto) {
-    return dto.result?.teachers?.map(item => ({id: item.id, text: item.name})); // map to name ???
+    return dto.result?.groups?.map(item => ({id: item.id, text: item.name})); // map to name ???
 }
