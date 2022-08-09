@@ -1,3 +1,4 @@
+export {AsyncData} from './async-data.component';
 export {
     useAsyncTask,
     STATUS_PENDING,

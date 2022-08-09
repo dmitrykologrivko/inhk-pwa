@@ -15,7 +15,7 @@ export function CollegeView({ inhkService = new InhkService() }) {
             .then(data => ({ teachers: data[0], students: data[1] }));
     }, [inhkService]);
 
-    const render = data => (
+    const content = data => (
         <>
             <Margin bottom={15}>
                 <PageHeading>
@@ -29,6 +29,6 @@ export function CollegeView({ inhkService = new InhkService() }) {
     return (
         <AsyncDataView className={styles.view_container}
                        asyncTask={fetchData}
-                       render={render} />
+                       content={content} />
     );
 }

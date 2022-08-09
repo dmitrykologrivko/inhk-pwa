@@ -1,14 +1,10 @@
 import {TryAgainView} from './try-again-view.component';
 import {ProgressView} from './progress-view.component';
 import {IndentedView} from './indented-view.component';
-import {
-    useAsyncTask,
-    STATUS_IN_PROGRESS,
-    STATUS_FAILED
-} from '../../hooks';
+import {AsyncData} from '../async';
 
 /**
- * Async data loading view
+ * Async data loading view component
  * @param className css class name
  * @param style additional css styles
  * @param asyncTask async data loading function.
@@ -20,31 +16,26 @@ export function AsyncDataView({
      className,
      style,
      asyncTask,
-     render
+     content
 }) {
-    const {
-        status,
-        data,
-        error,
-        restart
-    } = useAsyncTask(asyncTask);
-
-    const content = status === STATUS_FAILED ? (
+    const inProgress = () => (<ProgressView className={className} style={style} />);
+    const failed = (error, restart) => (
         <TryAgainView className={className}
                       style={style}
                       errorMessage={error.message}
-                      onRequestAgain={() => restart()} />
-    ) : (
+                      onRequestAgain={() => restart()}/>
+    );
+    const success = (data, restart) => (
         <IndentedView className={className}
                       style={style}>
-            {render(data)}
+            {content(data, restart)}
         </IndentedView>
     );
 
     return (
-        status === STATUS_IN_PROGRESS ? (
-            <ProgressView className={className}
-                          style={style} />
-        ) : (content)
+      <AsyncData asyncTask={asyncTask}
+                 inProgress={inProgress}
+                 failed={failed}
+                 success={success}/>
     );
 }
