@@ -15,6 +15,9 @@ const resources = {
             title: 'College',
             teachers: 'Teachers',
             groups: 'Groups'
+        },
+        login: {
+            title: 'Select a user'
         }
     },
     ru: {
@@ -30,6 +33,9 @@ const resources = {
             title: 'Колледж',
             teachers: 'Преподаватели',
             groups: 'Группы'
+        },
+        login: {
+            title: 'Выберете пользователя'
         }
     }
 }

@@ -10,7 +10,16 @@ import {TabBar} from '../tab-bar';
 import {debounce} from '../../utils';
 import styles from './tab-view.module.css';
 
-export function TabView({tabs, defaultView, navigate, onTabSelected}) {
+export function Tab({className, style, children}) {
+    return (
+        <div className={className}
+             style={{...style, minHeight: 'inherit'}}>
+            {children}
+        </div>
+    );
+}
+
+export function TabView({tabs, container, navigate, onTabSelected}) {
     const DEBOUNCE_DELAY = 100;
 
     const [viewMinHeight, setViewMinHeight] = useState(0);
@@ -63,7 +72,7 @@ export function TabView({tabs, defaultView, navigate, onTabSelected}) {
     return (
         <div style={{backgroundColor: tabs[selectedTabIndex]?.bgColor}}>
             <div style={{minHeight: viewMinHeight}}>
-                {tabs[selectedTabIndex]?.view || defaultView}
+                {tabs[selectedTabIndex]?.content || <Tab>{container}</Tab>}
             </div>
             <div className={styles.tab_bar_wrapper} ref={tabBarRef}>
                 <TabBar selectedIndex={selectedTabIndex}
@@ -78,7 +87,7 @@ export function TabView({tabs, defaultView, navigate, onTabSelected}) {
                                 navigate(tabs[index]?.path);
                             }
                         }}>
-                    {tabs.map((tab, index) => cloneElement(tab.tabItem, {key: index}))}
+                    {tabs.map((tab, index) => cloneElement(tab.tabBarItem, {key: index}))}
                 </TabBar>
             </div>
         </div>

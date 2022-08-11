@@ -1,14 +1,14 @@
-import {useEffect} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {Navigate, Link} from 'react-router-dom';
+import {AuthService} from "../auth";
 
-export function Home() {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        navigate('schedule');
-    }, [navigate]);
-
+export function Home({authService = new AuthService()}) {
     return (
-        <p>Home</p>
+        authService.isAuthenticated() ? (
+            <Navigate to='/schedule' replace={true}/>
+        ) : (
+            <div>
+                Home <Link to='/login'>Login</Link>
+            </div>
+        )
     );
 }

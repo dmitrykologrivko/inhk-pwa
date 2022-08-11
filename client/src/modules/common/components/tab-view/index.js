@@ -1,1 +1,1 @@
-export { TabView } from './tab-view.component';
+export { Tab, TabView } from './tab-view.component';

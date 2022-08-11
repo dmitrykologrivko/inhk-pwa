@@ -1,2 +1,2 @@
-export { College } from './college.component';
-export { CollegeView } from './college-view.component';
+export { STUDENT_ROLE, TEACHER_ROLE, College } from './college.component';
+export { CollegePage } from './college-page.component';
