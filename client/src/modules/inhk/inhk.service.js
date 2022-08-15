@@ -1,7 +1,8 @@
 import {InhkApiClient} from './inhk-api.client';
 import {
     mapTeachers,
-    mapGroups
+    mapGroups,
+    mapSchedule
 } from './inhk.mappers';
 
 export class InhkService {
@@ -18,20 +19,22 @@ export class InhkService {
     }
 
     async getTeacherSchedule(id) {
-        throw Error('Not implemented');
+        return this.client.getTeacherSchedule(id)
+            .then(mapSchedule);
     }
 
     async getGroupSchedule(id) {
-        throw Error('Not implemented');
+        return this.client.getGroupSchedule(id)
+            .then(mapSchedule);
     }
 
     async getTeachers() {
         return this.client.getTeachers()
-            .then(dto => mapTeachers(dto));
+            .then(mapTeachers);
     }
 
     async getGroups() {
         return this.client.getGroups()
-            .then(dto => mapGroups(dto));
+            .then(mapGroups);
     }
 }
