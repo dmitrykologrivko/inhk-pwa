@@ -34,7 +34,7 @@ export function LoginPage({
     }, [inhkService]);
 
     const onUserSelected = (object, role) => {
-        const user = new User(object.id, object.text, (() => {
+        const user = new User(object.id, object.name, (() => {
             switch (role) {
                 case STUDENT_ROLE:
                     return STUDENT_USER_ROLE;
