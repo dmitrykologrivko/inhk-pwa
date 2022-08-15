@@ -1,3 +1,4 @@
+// TODO: Update with actual
 export const SCHEDULE_TIME_INTERVALS = {
     1: {
         from: {

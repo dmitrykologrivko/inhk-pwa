@@ -9,7 +9,9 @@ const resources = {
             college: 'College'
         },
         schedule: {
-            timeLeft: '{{time}} minutes left'
+            timeLeft: '{{time}} minutes left',
+            notAuthorized: 'To see your schedule you must be authorized',
+            signIn: 'Sign In'
         },
         college: {
             title: 'College',
@@ -27,7 +29,9 @@ const resources = {
             college: 'Колледж'
         },
         schedule: {
-            timeLeft: 'Осталось {{time}} минут'
+            timeLeft: 'Осталось {{time}} минут',
+            notAuthorized: 'Чтобы просмотреть ваше расписание вы должны быть авторизованы',
+            signIn: 'Авторизоваться'
         },
         college: {
             title: 'Колледж',

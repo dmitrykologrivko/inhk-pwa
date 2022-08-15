@@ -3,7 +3,7 @@ import styles from './schedule.module.css';
 import userIcon from './user-solid.svg';
 import locationIcon from './location-dot-solid.svg';
 
-export function Lesson({lesson}) {
+export function Lesson({lesson, isTeacher}) {
     const {t} = useTranslation();
 
     const {timeInterval} = lesson;
@@ -49,22 +49,22 @@ export function Lesson({lesson}) {
                          style={{height: `${progress}%`}}/>
                 </div>
 
-                <ul className={styles.lesson__info}>
-                    {lesson.info.map((current, i) => ((
+                <ul className={styles.lesson__details}>
+                    {lesson.details.map((current, i) => ((
                         <li key={i}>
-                            <span className={styles.lesson__info__subject}>
+                            <span className={styles.lesson__details__subject}>
                                 {current.subject}
                             </span>
                             <br/>
-                            <span className={styles.lesson__info__teacher}>
-                                <img className={styles.lesson__info__teacher_icon}
+                            <span className={styles.lesson__details__teacher}>
+                                <img className={styles.lesson__details__teacher_icon}
                                      src={userIcon}
                                      alt='User icon'/>
-                                {current.teacher}
+                                {isTeacher ? current.group : current.teacher}
                             </span>
                             <br/>
-                            <span className={styles.lesson__info__classroom}>
-                                <img className={styles.lesson__info__classroom_icon}
+                            <span className={styles.lesson__details__classroom}>
+                                <img className={styles.lesson__details__classroom_icon}
                                      src={locationIcon}
                                      alt='Location icon'/>
                                 {current.classRoom}
@@ -83,10 +83,12 @@ export function Lesson({lesson}) {
     );
 }
 
-export function Schedule({lessons}) {
+export function Schedule({lessons, isTeacher}) {
     return (
         <section>
-            {lessons.map(lesson => <Lesson key={lesson.number} lesson={lesson}/>)}
+            {lessons.map(lesson => <Lesson key={lesson.number}
+                                           lesson={lesson}
+                                           isTeacher={isTeacher}/>)}
         </section>
     );
 }

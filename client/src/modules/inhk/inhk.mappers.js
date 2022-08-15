@@ -1,11 +1,11 @@
 import { getTimeInterval } from './lesson-time-interval.util';
 
 export async function mapTeachers(dto) {
-    return dto.result?.teachers?.map(item => ({id: item.id, text: item.name})); // map to name ???
+    return dto.result?.teachers?.map(item => ({id: item.id, name: item.name}));
 }
 
 export async function mapGroups(dto) {
-    return dto.result?.groups?.map(item => ({id: item.id, text: item.name})); // map to name ???
+    return dto.result?.groups?.map(item => ({id: item.id, name: item.name}));
 }
 
 export async function mapSchedule(dto) {

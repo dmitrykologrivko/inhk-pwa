@@ -18,7 +18,7 @@ function CollegeList(props) {
                       {children}
                   </Card>
               )}>
-            {props.items.map((item, index) => <SimpleListItem key={index} object={item}/>)}
+            {props.items.map((item, index) => <SimpleListItem key={index} object={item} textKey='name'/>)}
         </List>
     );
 }

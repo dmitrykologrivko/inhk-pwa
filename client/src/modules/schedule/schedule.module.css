@@ -46,7 +46,7 @@
     background-color: #48dd7c;
 }
 
-.lesson__info {
+.lesson__details {
     width: 100%;
     margin-top: 4px;
     margin-bottom: 4px;
@@ -55,33 +55,33 @@
     list-style: none;
 }
 
-.lesson__info li:not(:last-child) {
+.lesson__details li:not(:last-child) {
     margin-bottom: 6px;
 }
 
-.lesson__info__subject {
+.lesson__details__subject {
     display: inline-block;
     margin-bottom: 6px;
     font-weight: bold;
 }
 
-.lesson__info__teacher {
+.lesson__details__teacher {
     display: inline-block;
     margin-bottom: 6px;
     color: #7a8284;
 }
 
-.lesson__info__teacher_icon {
+.lesson__details__teacher_icon {
     width: 12px;
     height: 12px;
     margin-right: 5px;
 }
 
-.lesson__info__classroom {
+.lesson__details__classroom {
     color: #7a8284;
 }
 
-.lesson__info__classroom_icon {
+.lesson__details__classroom_icon {
     width: 12px;
     height: 12px;
     margin-right: 5px;
