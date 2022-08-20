@@ -1,0 +1,20 @@
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em;
+    min-width: 70px;
+    min-height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: var(--primary-dark-color);
+    transition: 0.5s;
+}
+
+.button:active {
+    background-color: var(--primary-light-color);
+}

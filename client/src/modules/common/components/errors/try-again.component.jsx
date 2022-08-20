@@ -1,3 +1,4 @@
+import {PrimaryButton} from '../buttons';
 import styles from './try-again.module.css';
 
 export function TryAgain({ children, buttonLabel, onRequestAgain }) {
@@ -5,7 +6,8 @@ export function TryAgain({ children, buttonLabel, onRequestAgain }) {
         <div className={styles.try_again}>
             <div>{children}</div>
             <br />
-            <button onClick={onRequestAgain}>{buttonLabel || 'Try Again'}</button>
+            <PrimaryButton title={buttonLabel || 'Try Again'}
+                           onClick={onRequestAgain} />
         </div>
     );
 }
