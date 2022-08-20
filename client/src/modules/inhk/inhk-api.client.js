@@ -1,6 +1,6 @@
 import {InhkApiException} from './inhk-api.exception';
 
-const BASE_API_URL = 'http://localhost:8000/api/';
+const BASE_API_URL = 'http://192.168.0.199:8000/api/';
 const TODAY_SCHEDULE_URL = BASE_API_URL + 'today';
 const DATED_SCHEDULE_URL = (date) => `${BASE_API_URL}date/${date}`;
 const TEACHER_SCHEDULE_URL = (id) => `${BASE_API_URL}teacher/${id}`;

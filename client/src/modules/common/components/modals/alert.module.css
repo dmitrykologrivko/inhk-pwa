@@ -1,0 +1,38 @@
+.content {
+    background-color: #e8e7e7;
+    border-radius: 15px;
+    min-width: 150px;
+    max-width: 300px;
+    overflow: hidden;
+}
+
+.header {
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 10px 5px 10px;
+}
+
+.body {
+    text-align: center;
+    padding: 0 18px 15px 18px;
+}
+
+.footer {}
+
+.button {
+    margin: 0;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    padding: 0.7em;
+    color: var(--primary-light-color);
+    border-top: 1px solid rgb(171, 171, 172);
+    box-sizing: border-box;
+    font-size: 0.9em;
+}
+
+.button:active {
+    background-color: rgb(171, 171, 172);
+    color: white;
+}

@@ -10,17 +10,21 @@ import {PageHeading, PageHeadingSecondary} from '../common/components/titles';
 import {AsyncData} from '../common/components/async';
 import {Spinner} from '../common/components/spinner';
 import {TryAgain} from '../common/components/errors';
+import {Alert} from '../common/components/modals';
 import styles from './my-schedule-page.module.css';
 import logoutIcon from './arrow-right-from-bracket-solid.svg';
 
+const inhkService = new InhkService();
+
 export function MySchedulePage({
     authService = new AuthService(),
-    inhkService = new InhkService()
+    // inhkService = new InhkService()
 }) {
     const navigate = useNavigate();
     const {t} = useTranslation();
 
     const [user] = useState(authService.getUser());
+    const [showSignOutModal, setShowSignOutModal] = useState(false);
 
     const fetchData = useCallback(() => {
         if (!user) {
@@ -42,7 +46,7 @@ export function MySchedulePage({
             return inhkService.getGroupSchedule(user.id)
                 .then(mapSchedule);
         }
-    }, [user, inhkService]);
+    }, [user]);
 
     const inProgress = () => (
         <FlexContainer minHeight='inherit'
@@ -74,7 +78,20 @@ export function MySchedulePage({
                             {data.onDate}
                         </PageHeadingSecondary>
                     </div>
-                    <img className={styles.logout_icon} src={logoutIcon} alt='Logout Icon'/>
+                    <img className={styles.logout_icon}
+                         src={logoutIcon}
+                         alt='Logout Icon'
+                         onClick={() => setShowSignOutModal(true)} />
+                    <Alert show={showSignOutModal}
+                           onClose={() => {setShowSignOutModal(false)}}
+                           onPositiveButtonClick={() => {
+                               authService.clear();
+                               navigate('/login');
+                           }}
+                           title={t('signOut', {ns: 'schedule'})}
+                           message={t('signOutMessage', {ns: 'schedule'})}
+                           negativeButtonLabel='No'
+                           positiveButtonLabel='Yes'/>
                 </FlexContainer>
             </Margin>
             <ScheduleFeed news={data.news}

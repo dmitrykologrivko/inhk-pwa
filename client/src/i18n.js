@@ -11,7 +11,9 @@ const resources = {
         schedule: {
             timeLeft: '{{time}} minutes left',
             notAuthorized: 'To see your schedule you must be authorized',
-            signIn: 'Sign In'
+            signIn: 'Sign In',
+            signOut: 'Sign Out',
+            signOutMessage: 'Do you want to sign out?'
         },
         college: {
             title: 'College',
@@ -31,7 +33,9 @@ const resources = {
         schedule: {
             timeLeft: 'Осталось {{time}} минут',
             notAuthorized: 'Чтобы просмотреть ваше расписание вы должны быть авторизованы',
-            signIn: 'Авторизоваться'
+            signIn: 'Авторизоваться',
+            signOut: 'Выход',
+            signOutMessage: 'Вы действительно хотите выйти из учетной записи?'
         },
         college: {
             title: 'Колледж',

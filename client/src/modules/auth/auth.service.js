@@ -19,6 +19,10 @@ export class AuthService {
         localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user));
     }
 
+    clear() {
+        localStorage.removeItem(USER_STORAGE_KEY);
+    }
+
     isAuthenticated() {
         return this.getUser() !== null;
     }
