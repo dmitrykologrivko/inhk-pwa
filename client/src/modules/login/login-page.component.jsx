@@ -1,19 +1,20 @@
-import {useCallback, useState} from 'react';
-import {Navigate} from 'react-router-dom';
-import {useTranslation} from 'react-i18next';
-import {InhkService} from '../inhk';
+import { useCallback, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useInhk, InhkProvider } from '../inhk';
 import {
     STUDENT_USER_ROLE,
     TEACHER_USER_ROLE,
     User,
-    AuthService,
+    useAuth,
+    AuthProvider
 } from '../auth';
-import {FlexContainer} from '../common/components/containers';
-import {Margin, Padding} from '../common/components/spacing';
-import {PageHeading} from '../common/components/titles';
-import {AsyncData} from '../common/components/async';
-import {Spinner} from '../common/components/spinner';
-import {TryAgain} from '../common/components/errors';
+import { FlexContainer } from '../common/components/containers';
+import { Margin, Padding } from '../common/components/spacing';
+import { PageHeading } from '../common/components/titles';
+import { AsyncData } from '../common/components/async';
+import { Spinner } from '../common/components/spinner';
+import { TryAgain } from '../common/components/errors';
 import {
     STUDENT_ROLE,
     TEACHER_ROLE,
@@ -21,11 +22,10 @@ import {
 } from '../college';
 import styles from './login-page.module.css';
 
-export function LoginPage({
-   inhkService = new InhkService(),
-   authService = new AuthService()
-}) {
+function LoginPageImpl() {
     const {t} = useTranslation();
+    const inhkService = useInhk();
+    const authService = useAuth();
     const [user, setUser] = useState(authService.getUser());
 
     const fetchData = useCallback(() => {
@@ -91,5 +91,15 @@ export function LoginPage({
                            inProgress={inProgress} />
             </div>
         )
+    );
+}
+
+export function LoginPage() {
+    return (
+        <AuthProvider>
+            <InhkProvider>
+                <LoginPageImpl />
+            </InhkProvider>
+        </AuthProvider>
     );
 }

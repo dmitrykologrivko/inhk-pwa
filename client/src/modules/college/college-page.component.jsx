@@ -1,22 +1,23 @@
-import {useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {useTranslation} from 'react-i18next';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
     TEACHER_USER_ROLE,
     STUDENT_USER_ROLE
 } from '../auth';
-import {InhkService} from '../inhk';
-import {FlexContainer} from '../common/components/containers';
-import {Margin, Padding} from '../common/components/spacing';
-import {PageHeading} from '../common/components/titles';
-import {AsyncData} from '../common/components/async';
-import {Spinner} from '../common/components/spinner';
-import {TryAgain} from '../common/components/errors';
-import {College} from './college.component';
+import { useInhk, InhkProvider } from '../inhk';
+import { FlexContainer } from '../common/components/containers';
+import { Margin, Padding } from '../common/components/spacing';
+import { PageHeading } from '../common/components/titles';
+import { AsyncData } from '../common/components/async';
+import { Spinner } from '../common/components/spinner';
+import { TryAgain } from '../common/components/errors';
+import { College } from './college.component';
 
-export function CollegePage({ inhkService = new InhkService() }) {
+function CollegePageImpl() {
     const navigate = useNavigate();
     const {t} = useTranslation();
+    const inhkService = useInhk();
 
     const fetchData = useCallback(() => {
         return Promise.all([inhkService.getTeachers(), inhkService.getGroups()])
@@ -69,5 +70,13 @@ export function CollegePage({ inhkService = new InhkService() }) {
                    failed={failed}
                    success={content}
                    inProgress={inProgress} />
+    );
+}
+
+export function CollegePage() {
+    return (
+        <InhkProvider>
+            <CollegePageImpl />
+        </InhkProvider>
     );
 }

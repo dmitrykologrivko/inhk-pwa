@@ -3,4 +3,5 @@ export {
     TEACHER_USER_ROLE,
     User
 } from './user.model';
-export {AuthService} from './auth.service';
+export { AuthService } from './auth.service';
+export { AuthProvider, useAuth } from './auth.context';

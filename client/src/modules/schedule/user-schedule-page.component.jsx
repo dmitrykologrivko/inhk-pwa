@@ -1,17 +1,18 @@
-import {useCallback} from 'react';
-import {useParams} from 'react-router-dom';
-import {TEACHER_USER_ROLE} from '../auth';
-import {InhkService} from '../inhk';
-import {ScheduleFeed} from './schedule-feed.component';
-import {Margin, Padding} from '../common/components/spacing';
-import {FlexContainer} from '../common/components/containers';
-import {PageHeading, PageHeadingSecondary} from '../common/components/titles';
-import {AsyncData} from '../common/components/async';
-import {Spinner} from '../common/components/spinner';
-import {TryAgain} from '../common/components/errors';
+import { useCallback } from 'react';
+import { useParams } from 'react-router-dom';
+import { TEACHER_USER_ROLE } from '../auth';
+import { useInhk, InhkProvider } from '../inhk';
+import { ScheduleFeed } from './schedule-feed.component';
+import { Margin, Padding } from '../common/components/spacing';
+import { FlexContainer } from '../common/components/containers';
+import { PageHeading, PageHeadingSecondary } from '../common/components/titles';
+import { AsyncData } from '../common/components/async';
+import { Spinner } from '../common/components/spinner';
+import { TryAgain } from '../common/components/errors';
 
-export function UserSchedulePage({userId, role, inhkService = new InhkService()}) {
+function UserSchedulePageImpl({userId, role}) {
     const params = useParams();
+    const inhkService = useInhk();
 
     const fetchData = useCallback(() => {
         const id = userId || params.id;
@@ -77,5 +78,13 @@ export function UserSchedulePage({userId, role, inhkService = new InhkService()}
                    failed={failed}
                    success={content}
                    inProgress={inProgress}/>
+    );
+}
+
+export function UserSchedulePage({userId, role}) {
+    return (
+        <InhkProvider>
+            <UserSchedulePageImpl userId={userId} role={role} />
+        </InhkProvider>
     );
 }

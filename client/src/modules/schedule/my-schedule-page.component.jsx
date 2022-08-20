@@ -1,27 +1,24 @@
-import {useState, useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {useTranslation} from 'react-i18next';
-import {AuthService} from '../auth';
-import {InhkService} from '../inhk';
-import {ScheduleFeed} from './schedule-feed.component';
-import {Margin, Padding} from '../common/components/spacing';
-import {FlexContainer} from '../common/components/containers';
-import {PageHeading, PageHeadingSecondary} from '../common/components/titles';
-import {AsyncData} from '../common/components/async';
-import {Spinner} from '../common/components/spinner';
-import {TryAgain} from '../common/components/errors';
-import {Alert} from '../common/components/modals';
+import { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useAuth, AuthProvider } from '../auth';
+import { useInhk, InhkProvider } from '../inhk';
+import { ScheduleFeed } from './schedule-feed.component';
+import { Margin, Padding } from '../common/components/spacing';
+import { FlexContainer } from '../common/components/containers';
+import { PageHeading, PageHeadingSecondary } from '../common/components/titles';
+import { AsyncData } from '../common/components/async';
+import { Spinner } from '../common/components/spinner';
+import { TryAgain } from '../common/components/errors';
+import { Alert } from '../common/components/modals';
 import styles from './my-schedule-page.module.css';
 import logoutIcon from './arrow-right-from-bracket-solid.svg';
 
-const inhkService = new InhkService();
-
-export function MySchedulePage({
-    authService = new AuthService(),
-    // inhkService = new InhkService()
-}) {
+function MySchedulePageImpl() {
     const navigate = useNavigate();
     const {t} = useTranslation();
+    const inhkService = useInhk();
+    const authService = useAuth();
 
     const [user] = useState(authService.getUser());
     const [showSignOutModal, setShowSignOutModal] = useState(false);
@@ -46,7 +43,7 @@ export function MySchedulePage({
             return inhkService.getGroupSchedule(user.id)
                 .then(mapSchedule);
         }
-    }, [user]);
+    }, [user, inhkService]);
 
     const inProgress = () => (
         <FlexContainer minHeight='inherit'
@@ -114,5 +111,15 @@ export function MySchedulePage({
                    failed={failed}
                    success={content}
                    inProgress={inProgress}/>
+    );
+}
+
+export function MySchedulePage() {
+    return (
+        <AuthProvider>
+            <InhkProvider>
+                <MySchedulePageImpl />
+            </InhkProvider>
+        </AuthProvider>
     );
 }
