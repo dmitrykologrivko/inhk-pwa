@@ -49,7 +49,7 @@ export function College(props) {
                 items = props.teachers;
             }
 
-            return items.filter(item => item.text.toLowerCase().search(query.toLowerCase()) === 0);
+            return items.filter(item => item.name.toLowerCase().search(query.toLowerCase()) === 0);
         });
     };
 
