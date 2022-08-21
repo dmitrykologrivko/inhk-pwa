@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
     useAsyncTask,
     STATUS_PENDING,
@@ -10,6 +11,7 @@ import {
  * Async data loading component
  * @param asyncTask async data loading function.
  *                  wrap by useCallback to avoid restarting on each re-render
+ * @param layout TODO: describe
  * @param pending render pending content before data is loaded
  * @param inProgress render progress content when data is loading
  * @param failed render failed content after data is loaded with error
@@ -19,6 +21,7 @@ import {
  */
 export function AsyncData({
    asyncTask,
+   layout,
    pending,
    inProgress,
    failed,
@@ -31,6 +34,24 @@ export function AsyncData({
         restart
     } = useAsyncTask(asyncTask);
 
+    const [refreshRequested, setRefreshRequested] = useState(false);
+
+    if (layout) {
+        return layout({
+            status,
+            data,
+            error,
+            restart: () => {
+                setRefreshRequested(false);
+                restart();
+            },
+            refresh: () => {
+                setRefreshRequested(true);
+                restart();
+            },
+            refreshRequested
+        });
+    }
     if (status === STATUS_PENDING && pending) {
         return pending();
     }

@@ -24,7 +24,7 @@ export class InhkService {
     }
 
     async getGroupSchedule(id) {
-        return this.client.getGroupSchedule(id)
+        return this.client.getScheduleOnDate('20.01.2022')
             .then(mapSchedule);
     }
 

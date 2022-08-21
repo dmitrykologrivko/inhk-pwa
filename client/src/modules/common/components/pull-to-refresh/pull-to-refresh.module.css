@@ -1,0 +1,41 @@
+.header {
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.header__content {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.arrow_up_icon {
+    width: 25px;
+    height: 25px;
+    rotate: 180deg;
+    transition: 0.3s;
+}
+
+.arrow_down_icon {
+    width: 25px;
+    height: 25px;
+    transition: 0.3s;
+}
+
+.rotate_icon {
+    width: 25px;
+    height: 25px;
+    animation: spin infinite 1.5s linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

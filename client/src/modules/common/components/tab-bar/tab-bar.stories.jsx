@@ -2,8 +2,6 @@ import React from 'react';
 import { TabBar, TabBarItem } from './tab-bar.component';
 import { ReactComponent as CalendarIcon } from '../../../../assets/icons/calendar-day-solid.svg';
 
-console.log(CalendarIcon);
-
 export default {
     title: 'Components/Common/Tab Bar',
     component: TabBar,

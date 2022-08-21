@@ -14,28 +14,32 @@ export function Alert(props) {
     );
     const footer = (
         <div className={styles.footer}>
-            <button className={styles.button}
-                    onClick={() => {
-                        if (props.onNegativeButtonClick) {
-                            props.onNegativeButtonClick();
-                        }
-                        if (props.onClose) {
-                            props.onClose();
-                        }
-                    }}>
-                {props.negativeButtonLabel}
-            </button>
-            <button className={styles.button}
-                    onClick={() => {
-                        if (props.onPositiveButtonClick) {
-                            props.onPositiveButtonClick();
-                        }
-                        if (props.onClose) {
-                            props.onClose();
-                        }
-                    }}>
-                {props.positiveButtonLabel}
-            </button>
+            {props.negativeButtonLabel ? (
+                <button className={styles.button}
+                        onClick={() => {
+                            if (props.onNegativeButtonClick) {
+                                props.onNegativeButtonClick();
+                            }
+                            if (props.onClose) {
+                                props.onClose();
+                            }
+                        }}>
+                    {props.negativeButtonLabel}
+                </button>
+            ) : ('')}
+            {props.positiveButtonLabel ? (
+                <button className={styles.button}
+                        onClick={() => {
+                            if (props.onPositiveButtonClick) {
+                                props.onPositiveButtonClick();
+                            }
+                            if (props.onClose) {
+                                props.onClose();
+                            }
+                        }}>
+                    {props.positiveButtonLabel}
+                </button>
+            ) : ('')}
         </div>
     );
 
