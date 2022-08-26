@@ -1,4 +1,4 @@
-import {createPortal} from 'react-dom';
+import { createPortal } from 'react-dom';
 import styles from './modal.module.css';
 
 export function Modal(props) {

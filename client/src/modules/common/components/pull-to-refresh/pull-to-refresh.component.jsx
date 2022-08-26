@@ -40,16 +40,28 @@ export function PullToRefresh({children, onRefresh, showProgress}) {
     };
 
     const onTouchMoveHandler = e => {
+        // Stop handling if page scroll
         if (e.view.pageYOffset !== 0) {
             return;
         }
 
+        let x;
         let y;
         if (typeof e["targetTouches"] !== "undefined") {
             const touch = e.targetTouches[0];
+            x = touch.screenX;
             y = touch.screenY;
         } else {
+            x = e.screenX;
             y = e.screenY;
+        }
+
+        const xDiff = positionStart.x - x;
+        const yDiff = positionStart.y - y;
+
+        // Stop handling if the initial swiping up
+        if (Math.abs(xDiff) < Math.abs(yDiff) && yDiff > 0) {
+            return;
         }
 
         const diffHeight = Math.abs(positionStart.y - y);

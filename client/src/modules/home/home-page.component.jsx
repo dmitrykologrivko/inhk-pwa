@@ -1,10 +1,11 @@
-import {Navigate} from 'react-router-dom';
-import {AuthService} from "../auth";
-import {SegmentedControl, SegmentedControlItem} from '../common/components/segmented-control';
+import { Navigate } from 'react-router-dom';
+import { AuthService } from "../auth";
+import { SegmentedControl, SegmentedControlItem } from '../common/components/segmented-control';
+import { ReactHead } from '../common/components/head';
 import logo from '../../assets/images/logo.png';
 import pwaLogo from '../../assets/images/pwa_logo.svg';
 import reactLogo from '../../assets/images/react_logo.svg';
-import '../App.css';
+import '../app.css';
 
 export function HomePage({authService = new AuthService()}) {
     const isInstalled = window.matchMedia('(display-mode: standalone)').matches;
@@ -13,6 +14,9 @@ export function HomePage({authService = new AuthService()}) {
         <Navigate to='/login' replace={true}/>
     ) : (
         <div>
+            <ReactHead>
+                <style>{'body {background: red;}'}</style>
+            </ReactHead>
             <section id='start' style={{textAlign:'center', height: '100vh', display: 'flex', justifyContent:'center', alignItems: 'center', flexFlow: 'column'}}>
                 <img src={logo} alt='' style={{ width: '256px', height: '256px' }}/>
                 <h3>Онлайн-расписание <br/> Невинномысского химико-технологического колледжа</h3>
