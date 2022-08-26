@@ -6,7 +6,15 @@ const resources = {
         translation: {
             search: 'Search',
             schedule: 'Schedule',
-            college: 'College'
+            college: 'College',
+            titles: {
+                error: 'Error'
+            },
+            buttons: {
+                ok: 'OK',
+                yes: 'Yes',
+                no: 'No'
+            },
         },
         schedule: {
             timeLeft: '{{time}} minutes left',
@@ -28,7 +36,15 @@ const resources = {
         translation: {
             search: 'Search',
             schedule: 'Расписание',
-            college: 'Колледж'
+            college: 'Колледж',
+            titles: {
+                error: 'Ошибка',
+                yes: 'Да',
+                no: 'Нет'
+            },
+            buttons: {
+                ok: 'OK'
+            },
         },
         schedule: {
             timeLeft: 'Осталось {{time}} минут',

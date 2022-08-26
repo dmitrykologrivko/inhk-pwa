@@ -8,12 +8,7 @@ import { Margin, Padding } from '../common/components/spacing';
 import { FlexContainer } from '../common/components/containers';
 import { PullToRefresh } from '../common/components/pull-to-refresh';
 import { PageHeading, PageHeadingSecondary } from '../common/components/titles';
-import {
-    STATUS_PENDING,
-    STATUS_IN_PROGRESS,
-    STATUS_FAILED,
-    AsyncData
-} from '../common/components/async';
+import { STATUS_IN_PROGRESS, AsyncData } from '../common/components/async';
 import { Spinner } from '../common/components/spinner';
 import { TryAgain } from '../common/components/errors';
 import { Alert } from '../common/components/modals';
@@ -27,7 +22,6 @@ function MySchedulePageImpl() {
     const authService = useAuth();
 
     const [user] = useState(authService.getUser());
-    const [showErrorModal, setShowErrorModal] = useState(true);
     const [showSignOutModal, setShowSignOutModal] = useState(false);
 
     const fetchData = useCallback(() => {
@@ -60,17 +54,17 @@ function MySchedulePageImpl() {
         </FlexContainer>
     );
 
-    const failed = (error, restart) => (
+    const failed = ({error, restart}) => (
         <FlexContainer minHeight='inherit'
                        alignItems='center'
                        justifyContent='center'>
-            <TryAgain onRequestAgain={restart}>
+            <TryAgain onRequestAgain={() => restart()}>
                 {error.message}
             </TryAgain>
         </FlexContainer>
     );
 
-    const content = (status, data, error, refresh) => {
+    const content = ({status, data, error, isErrorHandled, onErrorHandled, restart }) => {
         if (!user) {
             return (
                 <FlexContainer minHeight='inherit'
@@ -84,13 +78,8 @@ function MySchedulePageImpl() {
             );
         }
 
-        const onRefreshHandler = () => {
-            setShowErrorModal(true);
-            refresh();
-        };
-
         return (
-            <PullToRefresh onRefresh={onRefreshHandler}
+            <PullToRefresh onRefresh={() => restart(true)}
                            showProgress={status === STATUS_IN_PROGRESS}>
                 <Padding top={16} right={16} bottom={8} left={16}>
                     {/* Top */}
@@ -127,39 +116,27 @@ function MySchedulePageImpl() {
                            }}
                            title={t('signOut', {ns: 'schedule'})}
                            message={t('signOutMessage', {ns: 'schedule'})}
-                           negativeButtonLabel='No'
-                           positiveButtonLabel='Yes'/>
+                           negativeButtonLabel={t('buttons.no')}
+                           positiveButtonLabel={t('buttons.yes')}/>
 
                     {/* Error Alert */}
-                    <Alert show={showErrorModal && status === STATUS_FAILED}
+                    <Alert show={!isErrorHandled}
                            onClose={() => {
-                               setShowErrorModal(false);
+                               onErrorHandled();
                            }}
-                           title='Error'
+                           title={t('titles.error')}
                            message={error?.message}
-                           positiveButtonLabel='OK'/>
+                           positiveButtonLabel={t('buttons.ok')}/>
                 </Padding>
             </PullToRefresh>
         );
     };
 
-    const layout = ({status, data, error, restart, refresh, refreshRequested}) => {
-        if (status === STATUS_PENDING){
-            return;
-        }
-        if (!refreshRequested && status === STATUS_IN_PROGRESS) {
-            return inProgress();
-        }
-        if (!refreshRequested && status === STATUS_FAILED) {
-            return failed(error, restart);
-        }
-
-        return content(status, data, error, refresh);
-    };
-
     return (
         <AsyncData asyncTask={fetchData}
-                   layout={layout} />
+                   inProgress={inProgress}
+                   failed={failed}
+                   content={content}/>
     );
 }
 

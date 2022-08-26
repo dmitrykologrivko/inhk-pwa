@@ -1,0 +1,4 @@
+.user_schedule_container {
+    min-height: inherit;
+    background-color: var(--primary-bg-color);
+}

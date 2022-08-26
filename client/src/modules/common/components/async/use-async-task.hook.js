@@ -16,6 +16,7 @@ export function useAsyncTask(asyncTask) {
         asyncTask()
             .then(data => {
                 setData(data);
+                setError(null);
                 setStatus(STATUS_SUCCESS);
             })
             .catch(e => {

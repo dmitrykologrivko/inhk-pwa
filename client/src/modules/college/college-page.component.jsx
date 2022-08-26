@@ -42,17 +42,17 @@ function CollegePageImpl() {
         </FlexContainer>
     );
 
-    const failed = (error, restart) => (
+    const failed = ({error, restart}) => (
         <FlexContainer minHeight='inherit'
                        alignItems='center'
                        justifyContent='center'>
-            <TryAgain onRequestAgain={restart}>
+            <TryAgain onRequestAgain={() => restart()}>
                 {error.message}
             </TryAgain>
         </FlexContainer>
     );
 
-    const content = data => (
+    const content = ({data}) => (
         <Padding top={16} right={16} bottom={8} left={16}>
             <Margin bottom={15}>
                 <PageHeading>
@@ -68,7 +68,7 @@ function CollegePageImpl() {
     return (
         <AsyncData asyncTask={fetchData}
                    failed={failed}
-                   success={content}
+                   content={content}
                    inProgress={inProgress} />
     );
 }
