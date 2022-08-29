@@ -14,7 +14,7 @@ import { TryAgain } from '../common/components/errors';
 import { Alert } from '../common/components/modals';
 import styles from './user-schedule.module.css';
 
-function UserSchedulePageImpl({userId, role}) {
+function UserSchedulePageImpl({ userId, role }) {
     const params = useParams();
     const {t} = useTranslation();
     const inhkService = useInhk();

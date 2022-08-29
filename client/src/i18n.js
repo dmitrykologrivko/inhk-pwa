@@ -7,6 +7,7 @@ const resources = {
             search: 'Search',
             schedule: 'Schedule',
             college: 'College',
+            favorites: 'Favorites',
             titles: {
                 error: 'Error'
             },
@@ -28,6 +29,11 @@ const resources = {
             teachers: 'Teachers',
             groups: 'Groups'
         },
+        favorites: {
+            title: 'Favorites',
+            teachers: 'Teachers',
+            groups: 'Groups'
+        },
         login: {
             title: 'Select a user'
         }
@@ -37,6 +43,7 @@ const resources = {
             search: 'Search',
             schedule: 'Расписание',
             college: 'Колледж',
+            favorites: 'Избранное',
             titles: {
                 error: 'Ошибка',
                 yes: 'Да',
@@ -55,6 +62,11 @@ const resources = {
         },
         college: {
             title: 'Колледж',
+            teachers: 'Преподаватели',
+            groups: 'Группы'
+        },
+        favorites: {
+            title: 'Избранное',
             teachers: 'Преподаватели',
             groups: 'Группы'
         },

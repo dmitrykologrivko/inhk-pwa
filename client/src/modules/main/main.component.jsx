@@ -17,7 +17,11 @@ export function Main() {
         {
             tabBarItem: <TabBarItem title={t('college')} icon={<UsersIcon/>}/>,
             path: 'college'
-        }
+        },
+        {
+            tabBarItem: <TabBarItem title={t('favorites')} icon={<UsersIcon/>}/>,
+            path: 'favorites'
+        },
     ];
 
     return (
