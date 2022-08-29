@@ -24,7 +24,7 @@ function MySchedulePageImpl() {
     const [user] = useState(authService.getUser());
     const [showSignOutModal, setShowSignOutModal] = useState(false);
 
-    const fetchData = useCallback(() => {
+    const fetchData = useCallback(({ force }) => {
         if (!user) {
             return Promise.resolve({});
         }
@@ -38,10 +38,10 @@ function MySchedulePageImpl() {
         });
 
         if (user.isTeacher()) {
-            return inhkService.getTeacherSchedule(user.id)
+            return inhkService.getTeacherSchedule(user.id, force)
                 .then(mapSchedule);
         } else {
-            return inhkService.getGroupSchedule(user.id)
+            return inhkService.getGroupSchedule(user.id, force)
                 .then(mapSchedule);
         }
     }, [user, inhkService]);
@@ -58,13 +58,13 @@ function MySchedulePageImpl() {
         <FlexContainer minHeight='inherit'
                        alignItems='center'
                        justifyContent='center'>
-            <TryAgain onRequestAgain={() => restart()}>
+            <TryAgain onRequestAgain={() => restart({ force: false })}>
                 {error.message}
             </TryAgain>
         </FlexContainer>
     );
 
-    const content = ({status, data, error, isErrorHandled, onErrorHandled, restart }) => {
+    const content = ({status, data, error, isErrorHandled, onErrorHandled, refresh }) => {
         if (!user) {
             return (
                 <FlexContainer minHeight='inherit'
@@ -79,7 +79,7 @@ function MySchedulePageImpl() {
         }
 
         return (
-            <PullToRefresh onRefresh={() => restart(true)}
+            <PullToRefresh onRefresh={() => refresh({ force: true })}
                            showProgress={status === STATUS_IN_PROGRESS}>
                 <Padding top={16} right={16} bottom={8} left={16}>
                     {/* Top */}
@@ -134,6 +134,7 @@ function MySchedulePageImpl() {
 
     return (
         <AsyncData asyncTask={fetchData}
+                   taskArgs={{ force: false }}
                    inProgress={inProgress}
                    failed={failed}
                    content={content}/>

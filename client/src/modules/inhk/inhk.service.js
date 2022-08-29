@@ -1,4 +1,5 @@
-import {InhkApiClient} from './inhk-api.client';
+import { InhkApiClient } from './inhk-api.client';
+import { InhkCacheService } from './inhk-cache.service';
 import {
     mapTeachers,
     mapGroups,
@@ -6,8 +7,12 @@ import {
 } from './inhk.mappers';
 
 export class InhkService {
-    constructor(client = new InhkApiClient()) {
+    constructor(
+        client = new InhkApiClient(),
+        cache = new InhkCacheService(),
+    ) {
         this.client = client;
+        this.cache= cache;
     }
 
     async getTodaySchedule() {
@@ -18,14 +23,32 @@ export class InhkService {
         throw Error('Not implemented');
     }
 
-    async getTeacherSchedule(id) {
-        return this.client.getTeacherSchedule(id)
-            .then(mapSchedule);
+    async getTeacherSchedule(id, force = false) {
+        try {
+            return await this.client.getTeacherSchedule(id)
+                .then(schedule => this.cache.saveTeacherSchedule(id, schedule))
+                .then(mapSchedule);
+        } catch (e) {
+            const cachedSchedule = await this.cache.getTeacherScheduleById(id);
+            if (force || !cachedSchedule) {
+                throw e;
+            }
+            return mapSchedule(cachedSchedule);
+        }
     }
 
-    async getGroupSchedule(id) {
-        return this.client.getScheduleOnDate('20.01.2022')
-            .then(mapSchedule);
+    async getGroupSchedule(id, force = false) {
+        try {
+            return await this.client.getScheduleOnDate('20.01.2022')
+                .then(schedule => this.cache.saveGroupSchedule(id, schedule))
+                .then(mapSchedule);
+        } catch (e) {
+            const cachedSchedule = await this.cache.getGroupScheduleById(id);
+            if (force || !cachedSchedule) {
+                throw e;
+            }
+            return mapSchedule(cachedSchedule);
+        }
     }
 
     async getTeachers() {

@@ -19,8 +19,8 @@ function UserSchedulePageImpl({userId, role}) {
     const {t} = useTranslation();
     const inhkService = useInhk();
 
-    const fetchData = useCallback(() => {
-        const id = userId || params.id;
+    const fetchData = useCallback(({ force }) => {
+        const id = userId || Number.parseInt(params.id);
         const isTeacher = role === TEACHER_USER_ROLE;
 
         const mapSchedule = data => ({
@@ -32,10 +32,10 @@ function UserSchedulePageImpl({userId, role}) {
         });
 
         if (isTeacher) {
-            return inhkService.getTeacherSchedule(id)
+            return inhkService.getTeacherSchedule(id, force)
                 .then(mapSchedule);
         } else {
-            return inhkService.getGroupSchedule(id)
+            return inhkService.getGroupSchedule(id, force)
                 .then(mapSchedule);
         }
     }, [params, userId, role, inhkService]);
@@ -52,15 +52,15 @@ function UserSchedulePageImpl({userId, role}) {
         <FlexContainer minHeight='inherit'
                        alignItems='center'
                        justifyContent='center'>
-            <TryAgain onRequestAgain={() => restart()}>
+            <TryAgain onRequestAgain={() => restart({ force: false })}>
                 {error.message}
             </TryAgain>
         </FlexContainer>
     );
 
-    const content = ({status, data, error, isErrorHandled, onErrorHandled, restart }) => {
+    const content = ({status, data, error, isErrorHandled, onErrorHandled, refresh }) => {
         return (
-            <PullToRefresh onRefresh={() => {restart(true)}}
+            <PullToRefresh onRefresh={() => refresh({ force: true })}
                            showProgress={status === STATUS_IN_PROGRESS}>
                 <Padding top={16} right={16} bottom={8} left={16}>
                     {/* Top */}
@@ -98,6 +98,7 @@ function UserSchedulePageImpl({userId, role}) {
     return (
         <div className={styles.user_schedule_container}>
             <AsyncData asyncTask={fetchData}
+                       taskArgs={{ force: false }}
                        inProgress={inProgress}
                        failed={failed}
                        content={content}/>

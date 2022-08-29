@@ -20,6 +20,7 @@ import {
  */
 export function AsyncData({
    asyncTask,
+   taskArgs,
    pending,
    inProgress,
    failed,
@@ -30,7 +31,7 @@ export function AsyncData({
         data,
         error,
         restart
-    } = useAsyncTask(asyncTask);
+    } = useAsyncTask(asyncTask, taskArgs);
 
     const [isRefreshingData, setRefreshingData] = useState(false);
     const [isErrorHandled, setErrorHandled] = useState(true);
@@ -51,9 +52,13 @@ export function AsyncData({
         onErrorHandled: () => {
             setErrorHandled(true);
         },
-        restart: (refresh = false) => {
-            setRefreshingData(refresh);
-            restart();
+        restart: args => {
+            setRefreshingData(false);
+            restart(args);
+        },
+        refresh: args => {
+            setRefreshingData(true);
+            restart(args);
         }
     };
 
