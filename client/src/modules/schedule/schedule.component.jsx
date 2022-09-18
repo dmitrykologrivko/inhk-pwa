@@ -1,7 +1,7 @@
 import {useTranslation} from 'react-i18next';
 import styles from './schedule.module.css';
-import userIcon from './user-solid.svg';
-import locationIcon from './location-dot-solid.svg';
+import userIcon from './icons/user-solid.svg';
+import locationIcon from './icons/location-dot-solid.svg';
 
 export function Lesson({lesson, isTeacher}) {
     const {t} = useTranslation();

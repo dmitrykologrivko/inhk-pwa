@@ -7,13 +7,13 @@ import { ScheduleFeed } from './schedule-feed.component';
 import { Margin, Padding } from '../common/components/spacing';
 import { FlexContainer } from '../common/components/containers';
 import { PullToRefresh } from '../common/components/pull-to-refresh';
-import { PageHeading, PageHeadingSecondary } from '../common/components/titles';
+import { PageTitle, PageTitleSecondary } from '../common/components/titles';
 import { STATUS_IN_PROGRESS, AsyncData } from '../common/components/async';
 import { Spinner } from '../common/components/spinner';
 import { TryAgain } from '../common/components/errors';
 import { Alert } from '../common/components/modals';
 import styles from './my-schedule-page.module.css';
-import logoutIcon from './arrow-right-from-bracket-solid.svg';
+import logoutIcon from './icons/arrow-right-from-bracket-solid.svg';
 
 function MySchedulePageImpl() {
     const navigate = useNavigate();
@@ -86,12 +86,12 @@ function MySchedulePageImpl() {
                     <Margin bottom={15}>
                         <FlexContainer alignItems='center' justifyContent='space-between'>
                             <div>
-                                <PageHeading>
+                                <PageTitle>
                                     {user.name}
-                                </PageHeading>
-                                <PageHeadingSecondary>
+                                </PageTitle>
+                                <PageTitleSecondary>
                                     {data.onDate}
-                                </PageHeadingSecondary>
+                                </PageTitleSecondary>
                             </div>
                             <img className={styles.logout_icon}
                                  src={logoutIcon}

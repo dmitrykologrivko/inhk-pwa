@@ -1,1 +1,1 @@
-export { PageHeading, PageHeadingSecondary } from './page-heading.component';
+export { PageTitle, PageTitleSecondary } from './page-title.component';

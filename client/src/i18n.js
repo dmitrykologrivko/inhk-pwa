@@ -32,7 +32,9 @@ const resources = {
         favorites: {
             title: 'Favorites',
             teachers: 'Teachers',
-            groups: 'Groups'
+            groups: 'Groups',
+            noFavoriteTeachers: 'No favorite teachers',
+            noFavoriteGroups: 'No favorite groups'
         },
         login: {
             title: 'Select a user'
@@ -68,7 +70,9 @@ const resources = {
         favorites: {
             title: 'Избранное',
             teachers: 'Преподаватели',
-            groups: 'Группы'
+            groups: 'Группы',
+            noFavoriteTeachers: 'Нет избранных преподавателей',
+            noFavoriteGroups: 'Нет избранных групп'
         },
         login: {
             title: 'Выберете пользователя'

@@ -8,7 +8,7 @@ import {
 import { useInhk, InhkProvider } from '../inhk';
 import { FlexContainer } from '../common/components/containers';
 import { Margin, Padding } from '../common/components/spacing';
-import { PageHeading } from '../common/components/titles';
+import { PageTitle } from '../common/components/titles';
 import { AsyncData } from '../common/components/async';
 import { Spinner } from '../common/components/spinner';
 import { TryAgain } from '../common/components/errors';
@@ -55,9 +55,9 @@ function CollegePageImpl() {
     const content = ({data}) => (
         <Padding top={16} right={16} bottom={8} left={16}>
             <Margin bottom={15}>
-                <PageHeading>
+                <PageTitle>
                     {t('title', {ns: 'college'})}
-                </PageHeading>
+                </PageTitle>
             </Margin>
             <College students={data?.students || []}
                      teachers={data?.teachers || []}

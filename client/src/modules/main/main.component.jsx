@@ -4,6 +4,7 @@ import { TabView } from '../common/components/tab-view';
 import { TabBarItem } from '../common/components/tab-bar';
 import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar-day-solid.svg';
 import { ReactComponent as UsersIcon } from '../../assets/icons/users-solid.svg';
+import { ReactComponent as HeartIcon } from '../../assets/icons/cards-heart.svg';
 
 export function Main() {
     const {t} = useTranslation();
@@ -19,7 +20,7 @@ export function Main() {
             path: 'college'
         },
         {
-            tabBarItem: <TabBarItem title={t('favorites')} icon={<UsersIcon/>}/>,
+            tabBarItem: <TabBarItem title={t('favorites')} icon={<HeartIcon/>}/>,
             path: 'favorites'
         },
     ];

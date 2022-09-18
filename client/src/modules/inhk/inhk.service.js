@@ -39,7 +39,7 @@ export class InhkService {
 
     async getGroupSchedule(id, force = false) {
         try {
-            return await this.client.getScheduleOnDate('20.01.2022')
+            return await this.client.getGroupSchedule(id)
                 .then(schedule => this.cache.saveGroupSchedule(id, schedule))
                 .then(mapSchedule);
         } catch (e) {

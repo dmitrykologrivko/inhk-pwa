@@ -2,3 +2,9 @@
     min-height: inherit;
     background-color: var(--primary-bg-color);
 }
+
+.favorites_icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}

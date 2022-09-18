@@ -1,23 +1,33 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 import { TEACHER_USER_ROLE } from '../auth';
-import { useInhk, InhkProvider } from '../inhk';
+import {
+    useInhk,
+    InhkProvider,
+    useFavorites,
+    FavoritesProvider
+} from '../inhk';
 import { ScheduleFeed } from './schedule-feed.component';
 import { Margin, Padding } from '../common/components/spacing';
 import { FlexContainer } from '../common/components/containers';
 import { PullToRefresh } from '../common/components/pull-to-refresh';
-import { PageHeading, PageHeadingSecondary } from '../common/components/titles';
+import { PageTitle, PageTitleSecondary } from '../common/components/titles';
 import { AsyncData, STATUS_IN_PROGRESS } from '../common/components/async';
 import { Spinner } from '../common/components/spinner';
 import { TryAgain } from '../common/components/errors';
 import { Alert } from '../common/components/modals';
 import styles from './user-schedule.module.css';
+import heartIcon from './icons/cards-heart.svg';
+import heartOutlineIcon from './icons/cards-heart-outline.svg';
 
 function UserSchedulePageImpl({ userId, role }) {
     const params = useParams();
     const {t} = useTranslation();
     const inhkService = useInhk();
+    const favoritesService = useFavorites();
+
+    const [isFavorite, setIsFavorite] = useState(false);
 
     const fetchData = useCallback(({ force }) => {
         const id = userId || Number.parseInt(params.id);
@@ -25,20 +35,53 @@ function UserSchedulePageImpl({ userId, role }) {
 
         const mapSchedule = data => ({
             ...data,
+            id,
             lessons: data.schedule && data.schedule.length > 0
                 ? data.schedule[0].lessons
                 : [],
             isTeacher: isTeacher,
         });
 
+        const promises = [];
+
         if (isTeacher) {
-            return inhkService.getTeacherSchedule(id, force)
-                .then(mapSchedule);
+            promises.push(
+                inhkService.getTeacherSchedule(id, force),
+                favoritesService.isTeacherFavorite(id)
+            );
         } else {
-            return inhkService.getGroupSchedule(id, force)
-                .then(mapSchedule);
+            promises.push(
+                inhkService.getGroupSchedule(id, force),
+                favoritesService.isGroupFavorite(id)
+            );
         }
-    }, [params, userId, role, inhkService]);
+
+        return Promise.all(promises)
+            .then(values => {
+                setIsFavorite(values[1]);
+                return mapSchedule(values[0]);
+            });
+    }, [params, userId, role, inhkService, favoritesService]);
+
+    const onFavoritesIconClick = data => {
+        if (isFavorite && data.isTeacher) {
+            favoritesService.removeFavoriteTeacher(data.id)
+                .then();
+        } else if (!isFavorite && data.isTeacher) {
+            favoritesService.saveFavoriteTeacher(data.id, data.current)
+                .then();
+        }
+
+        if (isFavorite && !data.isTeacher) {
+            favoritesService.removeFavoriteGroup(data.id)
+                .then();
+        } else if (!isFavorite && !data.isTeacher) {
+            favoritesService.saveFavoriteGroup(data.id, data.current)
+                .then();
+        }
+
+        setIsFavorite(isFavorite => !isFavorite);
+    };
 
     const inProgress = () => (
         <FlexContainer minHeight='inherit'
@@ -67,13 +110,17 @@ function UserSchedulePageImpl({ userId, role }) {
                     <Margin bottom={15}>
                         <FlexContainer alignItems='center' justifyContent='space-between'>
                             <div>
-                                <PageHeading>
+                                <PageTitle>
                                     {data.current}
-                                </PageHeading>
-                                <PageHeadingSecondary>
+                                </PageTitle>
+                                <PageTitleSecondary>
                                     {data.onDate}
-                                </PageHeadingSecondary>
+                                </PageTitleSecondary>
                             </div>
+                            <img className={styles.favorites_icon}
+                                 src={isFavorite ? heartIcon : heartOutlineIcon}
+                                 alt='Favorites Icon'
+                                 onClick={() => onFavoritesIconClick(data)}/>
                         </FlexContainer>
                     </Margin>
 
@@ -109,7 +156,9 @@ function UserSchedulePageImpl({ userId, role }) {
 export function UserSchedulePage({userId, role}) {
     return (
         <InhkProvider>
-            <UserSchedulePageImpl userId={userId} role={role} />
+            <FavoritesProvider>
+                <UserSchedulePageImpl userId={userId} role={role} />
+            </FavoritesProvider>
         </InhkProvider>
     );
 }
