@@ -6,48 +6,48 @@ export const SCHEDULE_TIME_INTERVALS = {
             minutes: 0
         },
         to: {
-            hours: 8,
+            hours: 9,
             minutes: 30
         }
     },
     2: {
         from: {
-            hours: 8,
-            minutes: 0
+            hours: 9,
+            minutes: 50
         },
         to: {
-            hours: 8,
-            minutes: 30
+            hours: 11,
+            minutes: 20
         }
     },
     3: {
         from: {
-            hours: 8,
-            minutes: 0
+            hours: 11,
+            minutes: 50
         },
         to: {
-            hours: 8,
-            minutes: 30
+            hours: 13,
+            minutes: 20
         }
     },
     4: {
         from: {
-            hours: 8,
-            minutes: 0
+            hours: 13,
+            minutes: 30
         },
         to: {
-            hours: 8,
-            minutes: 30
+            hours: 15,
+            minutes: 0
         }
     },
     5: {
         from: {
-            hours: 8,
-            minutes: 0
+            hours: 15,
+            minutes: 10
         },
         to: {
-            hours: 8,
-            minutes: 30
+            hours: 16,
+            minutes: 40
         }
     }
 };

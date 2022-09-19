@@ -9,8 +9,6 @@ export async function mapGroups(dto) {
 }
 
 export async function mapSchedule(dto) {
-    const onDate = dto.result?.on_date;
-
     const mapLesson = (date, number, details) => ({
         number,
         timeInterval: getTimeInterval(number, date),
@@ -25,17 +23,17 @@ export async function mapSchedule(dto) {
     const schedule = dto.result?.schedule?.map(element => ({
         user: element.info,
         lessons: [
-            mapLesson(onDate, 1, element['1']),
-            mapLesson(onDate, 2, element['2']),
-            mapLesson(onDate, 3, element['3']),
-            mapLesson(onDate, 4, element['4']),
-            mapLesson(onDate, 5, element['5']),
+            mapLesson(dto.result?.on_date, 1, element['1']),
+            mapLesson(dto.result?.on_date, 2, element['2']),
+            mapLesson(dto.result?.on_date, 3, element['3']),
+            mapLesson(dto.result?.on_date, 4, element['4']),
+            mapLesson(dto.result?.on_date, 5, element['5']),
         ],
     }));
 
     return {
         current: dto.result?.current,
-        onDate,
+        onDate: new Date(dto.result?.on_date).toLocaleDateString(),
         schedule,
         news: [
             ...dto.result?.all_news,

@@ -6,6 +6,7 @@
 
 .lesson {
     display: flex;
+    min-height: 74px;
 }
 
 .lesson__active {

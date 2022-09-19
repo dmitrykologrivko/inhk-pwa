@@ -85,10 +85,10 @@ export function Lesson({lesson, isTeacher}) {
 
 export function Schedule({lessons, isTeacher}) {
     return (
-        <section>
+        <div>
             {lessons.map(lesson => <Lesson key={lesson.number}
                                            lesson={lesson}
                                            isTeacher={isTeacher}/>)}
-        </section>
+        </div>
     );
 }
