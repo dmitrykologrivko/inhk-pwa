@@ -1,1 +1,1 @@
-export {PrimaryButton} from './primary-button.component';
+export { PrimaryButton } from './primary-button.component';

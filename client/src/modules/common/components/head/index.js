@@ -1,1 +1,1 @@
-export { ReactHead } from './head.component';
+export { PortalHead } from './portal-head.component';

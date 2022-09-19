@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 
-export function ReactHead({ children }) {
+export function PortalHead({ children }) {
     return (
         createPortal(children, document.head)
     );

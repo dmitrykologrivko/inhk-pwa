@@ -1,0 +1,23 @@
+@keyframes react_logo_spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.react_logo {
+    width: 128px;
+    height: 128px;
+    animation: react_logo_spin infinite 20s linear;
+}
+
+.pwa_logo {
+    width: 128px;
+    height: 128px;
+}
+
+.description {
+    white-space: pre-line;
+}

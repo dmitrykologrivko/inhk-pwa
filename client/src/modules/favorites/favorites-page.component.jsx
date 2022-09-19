@@ -58,7 +58,7 @@ function FavoritesPageImpl() {
                 <FlexContainer alignItems='center' justifyContent='space-between'>
                     <div>
                         <PageTitle>
-                            {'Favorites'}
+                            {t('title', { ns: 'favorites' })}
                         </PageTitle>
                     </div>
                 </FlexContainer>

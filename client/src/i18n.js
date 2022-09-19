@@ -17,6 +17,18 @@ const resources = {
                 no: 'No'
             },
         },
+        home: {
+            start: {
+                title: 'Online schedule of the\nNevinnomyssk College of Chemical Technology',
+                install: 'Install',
+                more: 'More'
+            },
+            about: {
+                description: 'This application is a "Progressive Web Application" (PWA). PWA is a technology in web ' +
+                    'development that visually and functionally transforms a site into an application ' +
+                    '(mobile application in a browser).'
+            }
+        },
         schedule: {
             timeLeft: '{{time}} minutes left',
             notAuthorized: 'To see your schedule you must be authorized',
@@ -54,6 +66,18 @@ const resources = {
             buttons: {
                 ok: 'OK'
             },
+        },
+        home: {
+            start: {
+                title: 'Онлайн-расписание\nНевинномысского химико-технологического колледжа',
+                install: 'Установить',
+                more: 'Подробнее'
+            },
+            about: {
+                description: 'Данное приложение является "Прогрессивным веб-приложением" (PWA) PWA это технология ' +
+                    'в web-разработке, которая визуально и функционально трансформирует сайт в приложение ' +
+                    '(мобильное приложение в браузере).'
+            }
         },
         schedule: {
             timeLeft: 'Осталось {{time}} минут',

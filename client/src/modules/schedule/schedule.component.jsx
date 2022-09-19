@@ -1,4 +1,4 @@
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import styles from './schedule.module.css';
 import userIcon from './icons/user-solid.svg';
 import locationIcon from './icons/location-dot-solid.svg';

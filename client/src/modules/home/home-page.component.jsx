@@ -1,50 +1,25 @@
 import { Navigate } from 'react-router-dom';
-import { AuthService } from "../auth";
-import { SegmentedControl, SegmentedControlItem } from '../common/components/segmented-control';
-import { ReactHead } from '../common/components/head';
-import logo from '../../assets/images/logo.png';
-import pwaLogo from '../../assets/images/pwa_logo.svg';
-import reactLogo from '../../assets/images/react_logo.svg';
-import '../app.css';
+import { AuthProvider, useAuth } from '../auth';
+import { PortalHead } from '../common/components/head';
+import { Start } from './start.component';
+import { Install } from './install.component';
+import { About } from './about.component';
 
-export function HomePage({authService = new AuthService()}) {
+function HomePageImpl() {
+    const authService = useAuth();
+
     const isInstalled = window.matchMedia('(display-mode: standalone)').matches;
 
     const content = isInstalled ? (
         <Navigate to='/login' replace={true}/>
     ) : (
         <div>
-            <ReactHead>
-                <style>{'body {background: red;}'}</style>
-            </ReactHead>
-            <section id='start' style={{textAlign:'center', height: '100vh', display: 'flex', justifyContent:'center', alignItems: 'center', flexFlow: 'column'}}>
-                <img src={logo} alt='' style={{ width: '256px', height: '256px' }}/>
-                <h3>Онлайн-расписание <br/> Невинномысского химико-технологического колледжа</h3>
-                <div>
-                    <a href='/#install'><button>Установить</button></a>
-                    <a href='/#about'><button>Подробнее</button></a>
-                </div>
-            </section>
-            <section id='install' style={{padding: '8px' }}>
-                <SegmentedControl>
-                    <SegmentedControlItem title='Desktop' />
-                    <SegmentedControlItem title='iOS' />
-                    <SegmentedControlItem title='Android' />
-                </SegmentedControl>
-            </section>
-            <section id='about' style={{height: '100vh', padding: '8px', textAlign:'center', display: 'flex', alignItems: 'center', justifyContent:'center', flexFlow: 'column'}}>
-                <div>
-                    <img className='App-logo' src={reactLogo} alt='' style={{ width: '256px', height: '256px' }}/>
-                    <img src={pwaLogo} alt='' style={{ width: '256px', height: '256px' }}/>
-                </div>
-                <h4>
-                    Основано на проекте <a href='https://inhk.ru/'>inhk.ru</a>
-                </h4>
-                <div>
-                    Данное приложение является "Прогрессивным веб-приложением" (PWA).<br/>
-                    PWA это технология в web-разработке, которая визуально и функционально трансформирует сайт в приложение (мобильное приложение в браузере).
-                </div>
-            </section>
+            <PortalHead>
+                <style>{'body {background: white;}'}</style>
+            </PortalHead>
+            <Start />
+            <Install />
+            <About />
         </div>
     );
 
@@ -54,5 +29,13 @@ export function HomePage({authService = new AuthService()}) {
         ) : (
             content
         )
+    );
+}
+
+export function HomePage() {
+    return (
+        <AuthProvider>
+            <HomePageImpl />
+        </AuthProvider>
     );
 }
