@@ -25,7 +25,7 @@ export function PullToRefresh({children, onRefresh, showProgress}) {
         }
     };
 
-    const onTouchEndHandler = e => {
+    const onTouchEndHandler = () => {
         if (headerHeight < CONTENT_HEIGHT) {
             setHeaderHeight(0);
             return;

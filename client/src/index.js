@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './modules/app.component';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
@@ -14,6 +14,16 @@ root.render(
         </BrowserRouter>
     </React.StrictMode>
 );
+
+window.addEventListener('load', async () => {
+    if ('serviceWorker' in navigator) {
+        try {
+            await navigator.serviceWorker.register(`${process.env.PUBLIC_URL}/service-worker.js`);
+        } catch (e) {
+            console.error(e);
+        }
+    }
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
