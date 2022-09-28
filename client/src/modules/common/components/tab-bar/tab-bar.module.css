@@ -4,8 +4,7 @@
     width: 100%;
     overflow-x: scroll;
     padding-top: 4px;
-    /* TODO: https://developer.mozilla.org/en-US/docs/Web/CSS/env#examples */
-    padding-bottom: 2px;
+    padding-bottom: calc(2px + env(safe-area-inset-bottom));
     background-color: rgb(246 246 246 / 50%);
     border-top: 1px solid #B2B2B2;
     -webkit-backdrop-filter: blur(5px);

@@ -1,3 +1,10 @@
+html, body {
+  overscroll-behavior-y: none;
+}
+
 body {
   background: var(--primary-bg-color);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
