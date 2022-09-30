@@ -1,5 +1,5 @@
 .tab_bar_wrapper {
     width: 100%;
-    position: sticky;
+    position: fixed;
     bottom: 0;
 }

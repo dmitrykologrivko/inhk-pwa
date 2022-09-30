@@ -23,6 +23,7 @@ export function TabView({tabs, container, navigate, onTabSelected}) {
     const DEBOUNCE_DELAY = 100;
 
     const [viewMinHeight, setViewMinHeight] = useState(0);
+    const [tabBarHeight, setTabBarHeight] = useState(0);
     const [selectedTabIndex, setSelectedTabIndex] = useState(0);
     const tabBarRef = useRef(null);
 
@@ -39,6 +40,7 @@ export function TabView({tabs, container, navigate, onTabSelected}) {
         setSelectedTabIndex(-1);
     }, [tabs]);
 
+    // Set view min height
     useLayoutEffect(() => {
         const calcViewMinHeight = () =>
             window.innerHeight - tabBarRef.current.clientHeight;
@@ -51,6 +53,11 @@ export function TabView({tabs, container, navigate, onTabSelected}) {
 
         window.addEventListener('resize', onWindowResize);
         return () => window.removeEventListener('resize', onWindowResize);
+    }, []);
+
+    // Set tab bar height
+    useLayoutEffect(() => {
+       setTabBarHeight(tabBarRef.current.clientHeight);
     }, []);
 
     // First loading page
@@ -71,7 +78,7 @@ export function TabView({tabs, container, navigate, onTabSelected}) {
 
     return (
         <div style={{backgroundColor: tabs[selectedTabIndex]?.bgColor}}>
-            <div style={{minHeight: viewMinHeight}}>
+            <div style={{ minHeight: viewMinHeight, marginBottom: `${tabBarHeight}px` }}>
                 {tabs[selectedTabIndex]?.content || <Tab>{container}</Tab>}
             </div>
             <div className={styles.tab_bar_wrapper} ref={tabBarRef}>

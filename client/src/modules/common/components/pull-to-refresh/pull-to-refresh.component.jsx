@@ -41,7 +41,7 @@ export function PullToRefresh({children, onRefresh, showProgress}) {
 
     const onTouchMoveHandler = e => {
         // Stop handling if page scroll
-        if (e.view.pageYOffset !== 0) {
+        if (e.view.pageYOffset > 0) {
             return;
         }
 
