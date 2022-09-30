@@ -16,6 +16,7 @@ function HomePageImpl() {
         <div>
             <PortalHead>
                 <style>{'body {background: white;}'}</style>
+                <meta name="theme-color" content="white" />
             </PortalHead>
             <Start />
             <Install />
