@@ -79,6 +79,7 @@
 }
 
 .lesson__details__classroom {
+    display: inline-block;
     color: #7a8284;
 }
 

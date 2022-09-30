@@ -1,5 +1,6 @@
 .tab_bar_wrapper {
     width: 100%;
     position: fixed;
+    left: 0;
     bottom: 0;
 }
