@@ -7,7 +7,7 @@ import { PageTitle } from '../common/components/titles';
 import { Card } from '../common/components/containers';
 import { List } from '../common/components/list';
 import { SimpleListItem } from '../common/components/list-items';
-import { FavoritesProvider, useFavorites } from '../inhk';
+import { FavoritesProvider, useFavorites } from '../core/inhk';
 
 const TEACHER_ROLE = 'teacher';
 const STUDENT_ROLE = 'student';

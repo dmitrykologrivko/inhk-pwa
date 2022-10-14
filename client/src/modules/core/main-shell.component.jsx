@@ -6,7 +6,7 @@ import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar-day-
 import { ReactComponent as UsersIcon } from '../../assets/icons/users-solid.svg';
 import { ReactComponent as HeartIcon } from '../../assets/icons/cards-heart.svg';
 
-export function Main() {
+export function MainShell() {
     const {t} = useTranslation();
     const navigate = useNavigate();
 

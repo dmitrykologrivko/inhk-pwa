@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import {
     TEACHER_USER_ROLE,
     STUDENT_USER_ROLE
-} from '../auth';
-import { useInhk, InhkProvider } from '../inhk';
+} from '../core/auth';
+import { useInhk, InhkProvider } from '../core/inhk';
 import { FlexContainer } from '../common/components/containers';
 import { Margin, Padding } from '../common/components/spacing';
 import { PageTitle } from '../common/components/titles';

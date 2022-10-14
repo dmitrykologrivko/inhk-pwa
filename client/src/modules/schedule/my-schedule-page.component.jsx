@@ -1,8 +1,8 @@
 import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useAuth, AuthProvider } from '../auth';
-import { useInhk, InhkProvider } from '../inhk';
+import { useAuth, AuthProvider } from '../core/auth';
+import { useInhk, InhkProvider } from '../core/inhk';
 import { ScheduleFeed } from './schedule-feed.component';
 import { Margin, Padding } from '../common/components/spacing';
 import { FlexContainer } from '../common/components/containers';

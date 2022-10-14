@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from '../auth';
+import { AuthProvider, useAuth } from '../core/auth';
 import { PortalHead } from '../common/components/head';
 import { Start } from './start.component';
 import { Install } from './install.component';

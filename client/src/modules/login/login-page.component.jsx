@@ -1,14 +1,14 @@
 import { useCallback, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useInhk, InhkProvider } from '../inhk';
+import { useInhk, InhkProvider } from '../core/inhk';
 import {
     STUDENT_USER_ROLE,
     TEACHER_USER_ROLE,
     User,
     useAuth,
     AuthProvider
-} from '../auth';
+} from '../core/auth';
 import { FlexContainer } from '../common/components/containers';
 import { Margin, Padding } from '../common/components/spacing';
 import { PageTitle } from '../common/components/titles';

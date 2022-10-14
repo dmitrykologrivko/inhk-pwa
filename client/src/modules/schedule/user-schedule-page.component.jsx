@@ -1,13 +1,13 @@
 import { useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
-import { TEACHER_USER_ROLE } from '../auth';
+import { TEACHER_USER_ROLE } from '../core/auth';
 import {
     useInhk,
     InhkProvider,
     useFavorites,
     FavoritesProvider
-} from '../inhk';
+} from '../core/inhk';
 import { ScheduleFeed } from './schedule-feed.component';
 import { Margin, Padding } from '../common/components/spacing';
 import { FlexContainer } from '../common/components/containers';
