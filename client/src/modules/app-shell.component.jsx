@@ -1,12 +1,12 @@
 import { useNavigate, Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { TabView } from '../common/components/tab-view';
-import { TabBarItem } from '../common/components/tab-bar';
-import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar-day-solid.svg';
-import { ReactComponent as UsersIcon } from '../../assets/icons/users-solid.svg';
-import { ReactComponent as HeartIcon } from '../../assets/icons/cards-heart.svg';
+import { TabView } from './common/components/tab-view';
+import { TabBarItem } from './common/components/tab-bar';
+import { ReactComponent as CalendarIcon } from '../assets/icons/calendar-day-solid.svg';
+import { ReactComponent as UsersIcon } from '../assets/icons/users-solid.svg';
+import { ReactComponent as HeartIcon } from '../assets/icons/cards-heart.svg';
 
-export function MainShell() {
+export function AppShell() {
     const {t} = useTranslation();
     const navigate = useNavigate();
 
