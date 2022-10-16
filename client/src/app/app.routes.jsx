@@ -3,7 +3,7 @@ import {
     TEACHER_USER_ROLE,
     STUDENT_USER_ROLE
 } from './core/auth';
-import { AppShell } from './app-shell.component';
+import { AppShell } from './core/components/app-shell.component';
 import { MySchedulePage, UserSchedulePage } from './schedule';
 import { CollegePage } from './college';
 import { FavoritesPage } from './favorites';
