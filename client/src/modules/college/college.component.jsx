@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SearchInput } from '../common/components/search-input';
-import { SegmentedControl, SegmentedControlItem } from '../common/components/segmented-control';
-import { List } from '../common/components/list';
-import { SimpleListItem } from '../common/components/list-items';
-import { Margin } from '../common/components/spacing';
-import { Card } from '../common/components/containers';
+import { SearchInput } from '../../shared/components/search-input';
+import { SegmentedControl, SegmentedControlItem } from '../../shared/components/segmented-control';
+import { List } from '../../shared/components/list';
+import { SimpleListItem } from '../../shared/components/list-items';
+import { Margin } from '../../shared/components/spacing';
+import { Card } from '../../shared/components/containers';
 
 export const STUDENT_ROLE = 'student';
 export const TEACHER_ROLE = 'teacher';

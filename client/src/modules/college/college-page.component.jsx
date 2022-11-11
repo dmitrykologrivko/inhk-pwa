@@ -4,14 +4,14 @@ import { useTranslation } from 'react-i18next';
 import {
     TEACHER_USER_ROLE,
     STUDENT_USER_ROLE
-} from '../core/auth';
-import { useInhk, InhkProvider } from '../core/inhk';
-import { FlexContainer } from '../common/components/containers';
-import { Margin, Padding } from '../common/components/spacing';
-import { PageTitle } from '../common/components/titles';
-import { AsyncData } from '../common/components/async';
-import { Spinner } from '../common/components/spinner';
-import { TryAgain } from '../common/components/errors';
+} from '../../data/auth';
+import { useInhk, InhkProvider } from '../../data/inhk';
+import { FlexContainer } from '../../shared/components/containers';
+import { Margin, Padding } from '../../shared/components/spacing';
+import { PageTitle } from '../../shared/components/titles';
+import { AsyncData } from '../../shared/components/async';
+import { Spinner } from '../../shared/components/spinner';
+import { TryAgain } from '../../shared/components/errors';
 import { College } from './college.component';
 
 function CollegePageImpl() {

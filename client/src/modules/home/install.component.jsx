@@ -1,5 +1,5 @@
-import { useWindowSize } from '../common/hooks';
-import { SegmentedControl, SegmentedControlItem } from '../common/components/segmented-control';
+import { useWindowSize } from '../../shared/hooks';
+import { SegmentedControl, SegmentedControlItem } from '../../shared/components/segmented-control';
 
 export function Install() {
     const { height } = useWindowSize();

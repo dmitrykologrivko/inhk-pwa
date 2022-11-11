@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { FlexContainer } from '../common/components/containers';
-import { useWindowSize } from '../common/hooks';
+import { FlexContainer } from '../../shared/components/containers';
+import { useWindowSize } from '../../shared/hooks';
 import styles from './about.module.css';
 import pwaLogo from '../../assets/images/pwa_logo.svg';
 import reactLogo from '../../assets/images/react_logo.svg';

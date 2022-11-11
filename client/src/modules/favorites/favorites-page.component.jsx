@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Margin, Padding } from '../common/components/spacing';
-import { FlexContainer } from '../common/components/containers';
-import { PageTitle } from '../common/components/titles';
-import { Card } from '../common/components/containers';
-import { List } from '../common/components/list';
-import { SimpleListItem } from '../common/components/list-items';
-import { FavoritesProvider, useFavorites } from '../core/inhk';
+import { Margin, Padding } from '../../shared/components/spacing';
+import { FlexContainer } from '../../shared/components/containers';
+import { PageTitle } from '../../shared/components/titles';
+import { Card } from '../../shared/components/containers';
+import { List } from '../../shared/components/list';
+import { SimpleListItem } from '../../shared/components/list-items';
+import { FavoritesProvider, useFavorites } from '../../data/inhk';
 
 const TEACHER_ROLE = 'teacher';
 const STUDENT_ROLE = 'student';

@@ -1,20 +1,20 @@
 import { useCallback, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useInhk, InhkProvider } from '../core/inhk';
+import { useInhk, InhkProvider } from '../../data/inhk';
 import {
     STUDENT_USER_ROLE,
     TEACHER_USER_ROLE,
     User,
     useAuth,
     AuthProvider
-} from '../core/auth';
-import { FlexContainer } from '../common/components/containers';
-import { Margin, Padding } from '../common/components/spacing';
-import { PageTitle } from '../common/components/titles';
-import { AsyncData } from '../common/components/async';
-import { Spinner } from '../common/components/spinner';
-import { TryAgain } from '../common/components/errors';
+} from '../../data/auth';
+import { FlexContainer } from '../../shared/components/containers';
+import { Margin, Padding } from '../../shared/components/spacing';
+import { PageTitle } from '../../shared/components/titles';
+import { AsyncData } from '../../shared/components/async';
+import { Spinner } from '../../shared/components/spinner';
+import { TryAgain } from '../../shared/components/errors';
 import {
     STUDENT_ROLE,
     TEACHER_ROLE,

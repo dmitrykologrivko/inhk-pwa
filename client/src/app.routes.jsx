@@ -2,13 +2,13 @@ import { Routes, Route } from 'react-router-dom';
 import {
     TEACHER_USER_ROLE,
     STUDENT_USER_ROLE
-} from './core/auth';
-import { AppShell } from './core/components/app-shell.component';
-import { MySchedulePage, UserSchedulePage } from './schedule';
-import { CollegePage } from './college';
-import { FavoritesPage } from './favorites';
-import { HomePage } from './home';
-import { LoginPage } from './login';
+} from './data/auth';
+import { AppShell } from './app-shell.component';
+import { MySchedulePage, UserSchedulePage } from './modules/schedule';
+import { CollegePage } from './modules/college';
+import { FavoritesPage } from './modules/favorites';
+import { HomePage } from './modules/home';
+import { LoginPage } from './modules/login';
 
 export function AppRoutes() {
     return (

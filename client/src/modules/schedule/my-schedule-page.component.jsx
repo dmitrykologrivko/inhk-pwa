@@ -1,17 +1,17 @@
 import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useAuth, AuthProvider } from '../core/auth';
-import { useInhk, InhkProvider } from '../core/inhk';
+import { useAuth, AuthProvider } from '../../data/auth';
+import { useInhk, InhkProvider } from '../../data/inhk';
 import { ScheduleFeed } from './schedule-feed.component';
-import { Margin, Padding } from '../common/components/spacing';
-import { FlexContainer } from '../common/components/containers';
-import { PullToRefresh } from '../common/components/pull-to-refresh';
-import { PageTitle, PageTitleSecondary } from '../common/components/titles';
-import { STATUS_IN_PROGRESS, AsyncData } from '../common/components/async';
-import { Spinner } from '../common/components/spinner';
-import { TryAgain } from '../common/components/errors';
-import { Alert } from '../common/components/modals';
+import { Margin, Padding } from '../../shared/components/spacing';
+import { FlexContainer } from '../../shared/components/containers';
+import { PullToRefresh } from '../../shared/components/pull-to-refresh';
+import { PageTitle, PageTitleSecondary } from '../../shared/components/titles';
+import { STATUS_IN_PROGRESS, AsyncData } from '../../shared/components/async';
+import { Spinner } from '../../shared/components/spinner';
+import { TryAgain } from '../../shared/components/errors';
+import { Alert } from '../../shared/components/modals';
 import styles from './my-schedule-page.module.css';
 import logoutIcon from './icons/arrow-right-from-bracket-solid.svg';
 

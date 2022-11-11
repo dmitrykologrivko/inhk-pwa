@@ -1,22 +1,22 @@
 import { useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
-import { TEACHER_USER_ROLE } from '../core/auth';
+import { TEACHER_USER_ROLE } from '../../data/auth';
 import {
     useInhk,
     InhkProvider,
     useFavorites,
     FavoritesProvider
-} from '../core/inhk';
+} from '../../data/inhk';
 import { ScheduleFeed } from './schedule-feed.component';
-import { Margin, Padding } from '../common/components/spacing';
-import { FlexContainer } from '../common/components/containers';
-import { PullToRefresh } from '../common/components/pull-to-refresh';
-import { PageTitle, PageTitleSecondary } from '../common/components/titles';
-import { AsyncData, STATUS_IN_PROGRESS } from '../common/components/async';
-import { Spinner } from '../common/components/spinner';
-import { TryAgain } from '../common/components/errors';
-import { Alert } from '../common/components/modals';
+import { Margin, Padding } from '../../shared/components/spacing';
+import { FlexContainer } from '../../shared/components/containers';
+import { PullToRefresh } from '../../shared/components/pull-to-refresh';
+import { PageTitle, PageTitleSecondary } from '../../shared/components/titles';
+import { AsyncData, STATUS_IN_PROGRESS } from '../../shared/components/async';
+import { Spinner } from '../../shared/components/spinner';
+import { TryAgain } from '../../shared/components/errors';
+import { Alert } from '../../shared/components/modals';
 import styles from './user-schedule.module.css';
 import heartIcon from './icons/cards-heart.svg';
 import heartOutlineIcon from './icons/cards-heart-outline.svg';

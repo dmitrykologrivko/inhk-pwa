@@ -1,4 +1,4 @@
-import { Card } from '../common/components/containers';
+import { Card } from '../../shared/components/containers';
 import styles from './news.module.css';
 
 export function News({ news }) {
