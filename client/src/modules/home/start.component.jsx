@@ -21,10 +21,10 @@ export function Start() {
                 {t('start.title', { ns: 'home' })}
             </h4>
             <div>
-                <a href='/client/public#install' className={styles.install_button}>
+                <a href='/#install' className={styles.install_button}>
                     <PrimaryButton title={t('start.install', { ns: 'home' })}/>
                 </a>
-                <a href='/client/public#about'>
+                <a href='/#about'>
                     <PrimaryButton title={t('start.more', { ns: 'home' })}/>
                 </a>
             </div>

@@ -1,0 +1,23 @@
+.date_picker {
+    padding-bottom: 8px;
+}
+
+.days_row {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.day {
+    text-align: center;
+    margin: 5px;
+}
+
+.day__date__selected {
+    width: 20px;
+    height: 19px;
+    border-radius: 50%;
+    color: white;
+    background-color: red;
+}

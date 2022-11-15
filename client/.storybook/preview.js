@@ -1,4 +1,3 @@
-import '../src/index.css';
 import '../src/assets/styles/colors.css';
 
 export const parameters = {
