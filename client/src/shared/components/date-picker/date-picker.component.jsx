@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Card, FlexContainer } from '../containers';
-import { debounce } from '../../utils';
 import styles from './date-picker.module.css';
 
 export const DAY_SUNDAY = 0;
@@ -63,23 +62,20 @@ function getDaysRow(
     return daysRow;
 }
 
-const testDep = debounce((f) => {
-    console.log(typeof f());
-}, 1000);
-
 export function DatePicker({
     locale = window.navigator.language,
     firstDayOfWeek = DAY_SUNDAY,
     date = new Date(),
-    onChange = _ => {}
+    onChange = _ => {},
+    displayOnly = true
 }) {
     const [selectedDate, setSelectedDate] = useState(date);
 
     const daysRow = getDaysRow(locale, selectedDate, firstDayOfWeek)
-        .map(day => {
+        .map((day, index) => {
             const isSelectedDay = day.toLocaleDateString(locale) === selectedDate.toLocaleDateString(locale);
             return (
-                <li className={styles.day}>
+                <li key={index} className={styles.day}>
                     <div>
                         {day.toLocaleDateString(locale, { weekday: 'short' })}
                     </div>
@@ -89,6 +85,8 @@ export function DatePicker({
                 </li>
             );
         });
+    const formattedDate = `${selectedDate.getDate()} 
+        ${selectedDate.toLocaleDateString(locale, { month: 'long' })} ${selectedDate.getFullYear()}`;
 
     return (
         <Card className={styles.date_picker}>
@@ -96,7 +94,10 @@ export function DatePicker({
                 <ul className={styles.days_row}>
                     {daysRow}
                 </ul>
-                <div>
+                <div style={{ display: `${displayOnly ? '' : 'none'}` }}>
+                    {formattedDate}
+                </div>
+                <div style={{ display: `${displayOnly ? 'none' : ''}` }}>
                     <input type='date'
                            value={selectedDate.toISOString().split('T')[0]}
                            onChange={e => {

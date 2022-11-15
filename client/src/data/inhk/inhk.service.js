@@ -15,12 +15,8 @@ export class InhkService {
         this.cache= cache;
     }
 
-    async getTodaySchedule() {
-        throw Error('Not implemented');
-    }
-
     async getScheduleOnDate(date) {
-        throw Error('Not implemented');
+        return await this.client.getScheduleOnDate(date);
     }
 
     async getTeacherSchedule(id, force = false) {

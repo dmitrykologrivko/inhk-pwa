@@ -33,7 +33,7 @@ export async function mapSchedule(dto) {
 
     return {
         current: dto.result?.current,
-        onDate: new Date(dto.result?.on_date).toLocaleDateString(),
+        onDate: new Date(dto.result?.on_date),
         schedule,
         news: [
             ...dto.result?.all_news,

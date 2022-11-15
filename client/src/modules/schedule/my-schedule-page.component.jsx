@@ -7,8 +7,9 @@ import { ScheduleFeed } from './schedule-feed.component';
 import { Margin, Padding } from '../../shared/components/spacing';
 import { FlexContainer } from '../../shared/components/containers';
 import { PullToRefresh } from '../../shared/components/pull-to-refresh';
-import { PageTitle, PageTitleSecondary } from '../../shared/components/titles';
+import { PageTitle } from '../../shared/components/titles';
 import { STATUS_IN_PROGRESS, AsyncData } from '../../shared/components/async';
+import { DatePicker, DAY_MONDAY } from '../../shared/components/date-picker';
 import { Spinner } from '../../shared/components/spinner';
 import { TryAgain } from '../../shared/components/errors';
 import { Alert } from '../../shared/components/modals';
@@ -85,19 +86,19 @@ function MySchedulePageImpl() {
                     {/* Top */}
                     <Margin bottom={15}>
                         <FlexContainer alignItems='center' justifyContent='space-between'>
-                            <div>
-                                <PageTitle>
-                                    {user.name}
-                                </PageTitle>
-                                <PageTitleSecondary>
-                                    {data.onDate}
-                                </PageTitleSecondary>
-                            </div>
+                            <PageTitle>
+                                {user.name}
+                            </PageTitle>
                             <img className={styles.logout_icon}
                                  src={logoutIcon}
                                  alt='Logout Icon'
                                  onClick={() => setShowSignOutModal(true)}/>
                         </FlexContainer>
+                    </Margin>
+
+                    {/* Date Picker */}
+                    <Margin bottom={15}>
+                        <DatePicker date={data.onDate} firstDayOfWeek={DAY_MONDAY} />
                     </Margin>
 
                     {/* Content */}

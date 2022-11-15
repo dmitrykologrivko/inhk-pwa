@@ -54,11 +54,14 @@ function CollegePageImpl() {
 
     const content = ({data}) => (
         <Padding top={16} right={16} bottom={8} left={16}>
+            {/* Top */}
             <Margin bottom={15}>
                 <PageTitle>
                     {t('title', {ns: 'college'})}
                 </PageTitle>
             </Margin>
+
+            {/* College */}
             <College students={data?.students || []}
                      teachers={data?.teachers || []}
                      onItemSelected={onUserSelected}/>

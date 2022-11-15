@@ -12,8 +12,9 @@ import { ScheduleFeed } from './schedule-feed.component';
 import { Margin, Padding } from '../../shared/components/spacing';
 import { FlexContainer } from '../../shared/components/containers';
 import { PullToRefresh } from '../../shared/components/pull-to-refresh';
-import { PageTitle, PageTitleSecondary } from '../../shared/components/titles';
+import { PageTitle } from '../../shared/components/titles';
 import { AsyncData, STATUS_IN_PROGRESS } from '../../shared/components/async';
+import { DatePicker, DAY_MONDAY } from '../../shared/components/date-picker';
 import { Spinner } from '../../shared/components/spinner';
 import { TryAgain } from '../../shared/components/errors';
 import { Alert } from '../../shared/components/modals';
@@ -109,19 +110,19 @@ function UserSchedulePageImpl({ userId, role }) {
                     {/* Top */}
                     <Margin bottom={15}>
                         <FlexContainer alignItems='center' justifyContent='space-between'>
-                            <div>
-                                <PageTitle>
-                                    {data.current}
-                                </PageTitle>
-                                <PageTitleSecondary>
-                                    {data.onDate}
-                                </PageTitleSecondary>
-                            </div>
+                            <PageTitle>
+                                {data.current}
+                            </PageTitle>
                             <img className={styles.favorites_icon}
                                  src={isFavorite ? heartIcon : heartOutlineIcon}
                                  alt='Favorites Icon'
                                  onClick={() => onFavoritesIconClick(data)}/>
                         </FlexContainer>
+                    </Margin>
+
+                    {/* Date Picker */}
+                    <Margin bottom={15}>
+                        <DatePicker date={data.onDate} firstDayOfWeek={DAY_MONDAY} />
                     </Margin>
 
                     {/* Content */}

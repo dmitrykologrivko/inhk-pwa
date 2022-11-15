@@ -2,7 +2,7 @@ import {InhkApiException} from './inhk-api.exception';
 
 const BASE_API_URL = 'http://192.168.0.199:8000/api/';
 const TODAY_SCHEDULE_URL = BASE_API_URL + 'today';
-const DATED_SCHEDULE_URL = (date) => `${BASE_API_URL}date/${date}`;
+const DATED_SCHEDULE_URL = (date) => `${BASE_API_URL}date/${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 const TEACHER_SCHEDULE_URL = (id) => `${BASE_API_URL}teacher/${id}`;
 const GROUP_SCHEDULE_URL = (id) => `${BASE_API_URL}group/${id}`;
 const TEACHERS_URL = BASE_API_URL + 'teachers';
