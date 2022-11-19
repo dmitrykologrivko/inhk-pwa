@@ -1,6 +1,9 @@
 import {InhkApiException} from './inhk-api.exception';
 
-const BASE_API_URL = 'http://192.168.0.199:8000/api/';
+const BASE_URL = process.env.NODE_ENV === 'production'
+    ? window.location.origin
+    : window.location.origin.replace(/([0-9]+)$/, '8000');
+const BASE_API_URL = `${BASE_URL}/api/`;
 const TODAY_SCHEDULE_URL = BASE_API_URL + 'today';
 const DATED_SCHEDULE_URL = (date) => `${BASE_API_URL}date/${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 const TEACHER_SCHEDULE_URL = (id) => `${BASE_API_URL}teacher/${id}`;
