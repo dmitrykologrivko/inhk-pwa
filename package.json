@@ -1,0 +1,23 @@
+{
+  "name": "inhk-pwa",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "postinstall": "npm --prefix client install && npm --prefix backend install && npm run build",
+    "start": "npm run --prefix backend start",
+    "start-dev": "npm run --prefix backend start | npm run --prefix client start",
+    "clean": "rm -r -f backend/public client/build",
+    "build": "npm run clean && npm run --prefix client build && mkdir backend/public && mv client/build/* backend/public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmitrykologrivko/inhk-pwa.git"
+  },
+  "author": "Dmitry Kologrivko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmitrykologrivko/inhk-pwa/issues"
+  },
+  "homepage": "https://github.com/dmitrykologrivko/inhk-pwa#readme"
+}

@@ -5,9 +5,10 @@ const routes = require('./routes');
 const app = express();
 
 app.use(cors());
+app.use(express.static('public'));
 
 /*
-    Proxy Inhk server
+ * Proxy Inhk server
  */
 app.get('/api/today', routes.todaySchedule);
 app.get('/api/date/:date', routes.onDateSchedule);
