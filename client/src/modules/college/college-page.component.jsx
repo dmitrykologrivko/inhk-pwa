@@ -13,6 +13,8 @@ import { AsyncData } from '../../shared/components/async';
 import { Spinner } from '../../shared/components/spinner';
 import { TryAgain } from '../../shared/components/errors';
 import { College } from './college.component';
+import styles from './college-page.module.css';
+import calendarIcon from '../../assets/icons/calendar-day-solid.svg';
 
 function CollegePageImpl() {
     const navigate = useNavigate();
@@ -56,9 +58,15 @@ function CollegePageImpl() {
         <Padding top={16} right={16} bottom={8} left={16}>
             {/* Top */}
             <Margin bottom={15}>
-                <PageTitle>
-                    {t('title', {ns: 'college'})}
-                </PageTitle>
+                <FlexContainer alignItems='center' justifyContent='space-between'>
+                    <PageTitle>
+                        {t('title', {ns: 'college'})}
+                    </PageTitle>
+                    <img className={styles.date_icon}
+                         src={calendarIcon}
+                         alt='Date Icon'
+                         onClick={() => navigate(`/schedule/date/${new Date().toISOString().split('T')[0]}`)}/>
+                </FlexContainer>
             </Margin>
 
             {/* College */}

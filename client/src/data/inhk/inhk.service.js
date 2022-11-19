@@ -16,7 +16,8 @@ export class InhkService {
     }
 
     async getScheduleOnDate(date) {
-        return await this.client.getScheduleOnDate(date);
+        return await this.client.getScheduleOnDate(date)
+            .then(mapSchedule);
     }
 
     async getTeacherSchedule(id, force = false) {

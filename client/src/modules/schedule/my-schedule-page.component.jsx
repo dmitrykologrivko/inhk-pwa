@@ -5,7 +5,7 @@ import { useAuth, AuthProvider } from '../../data/auth';
 import { useInhk, InhkProvider } from '../../data/inhk';
 import { ScheduleFeed } from './schedule-feed.component';
 import { Margin, Padding } from '../../shared/components/spacing';
-import { FlexContainer } from '../../shared/components/containers';
+import { FlexContainer, Card } from '../../shared/components/containers';
 import { PullToRefresh } from '../../shared/components/pull-to-refresh';
 import { PageTitle } from '../../shared/components/titles';
 import { STATUS_IN_PROGRESS, AsyncData } from '../../shared/components/async';
@@ -98,7 +98,11 @@ function MySchedulePageImpl() {
 
                     {/* Date Picker */}
                     <Margin bottom={15}>
-                        <DatePicker date={data.onDate} firstDayOfWeek={DAY_MONDAY} />
+                        <Card>
+                            <Padding top={4} bottom={8}>
+                                <DatePicker date={data.onDate} firstDayOfWeek={DAY_MONDAY} />
+                            </Padding>
+                        </Card>
                     </Margin>
 
                     {/* Content */}

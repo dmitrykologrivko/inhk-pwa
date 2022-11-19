@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Card, FlexContainer } from '../containers';
+import { useState, useRef, useEffect } from 'react';
+import { FlexContainer } from '../containers';
+import { debounce } from '../../utils';
 import styles from './date-picker.module.css';
 
 export const DAY_SUNDAY = 0;
@@ -69,7 +70,20 @@ export function DatePicker({
     onChange = _ => {},
     displayOnly = true
 }) {
+    const DEBOUNCE_DELAY = 700;
+
     const [selectedDate, setSelectedDate] = useState(date);
+    const inputDateRef = useRef();
+
+    const onInputDateChange = debounce(() => {
+        const selectedDate = new Date(inputDateRef.current.valueAsDate);
+        setSelectedDate(selectedDate);
+        onChange(selectedDate);
+    }, DEBOUNCE_DELAY);
+
+    useEffect(() => {
+        inputDateRef.current.value = date.toISOString().split('T')[0];
+    }, [date]);
 
     const daysRow = getDaysRow(locale, selectedDate, firstDayOfWeek)
         .map((day, index) => {
@@ -79,34 +93,33 @@ export function DatePicker({
                     <div>
                         {day.toLocaleDateString(locale, { weekday: 'short' })}
                     </div>
-                    <div className={`${isSelectedDay ? styles.day__date__selected : ''}`}>
-                        {day.getDate()}
-                    </div>
+                    <FlexContainer minHeight='25px'
+                                   alignItems='center'
+                                   justifyContent='center'>
+                        <span className={`${isSelectedDay ? styles.day__date__selected : ''}`}>
+                            {day.getDate()}
+                        </span>
+                    </FlexContainer>
                 </li>
             );
         });
     const formattedDate = `${selectedDate.getDate()} 
-        ${selectedDate.toLocaleDateString(locale, { month: 'long' })} ${selectedDate.getFullYear()}`;
+            ${selectedDate.toLocaleDateString(locale, { month: 'long' })} ${selectedDate.getFullYear()}`;
 
     return (
-        <Card className={styles.date_picker}>
-            <FlexContainer flexFlow='column' alignItems='center'>
-                <ul className={styles.days_row}>
-                    {daysRow}
-                </ul>
-                <div style={{ display: `${displayOnly ? '' : 'none'}` }}>
-                    {formattedDate}
-                </div>
-                <div style={{ display: `${displayOnly ? 'none' : ''}` }}>
-                    <input type='date'
-                           value={selectedDate.toISOString().split('T')[0]}
-                           onChange={e => {
-                               const selectedDate = new Date(e.target.valueAsDate);
-                               onChange(selectedDate);
-                               setSelectedDate(selectedDate);
-                           }} />
-                </div>
-            </FlexContainer>
-        </Card>
+        <FlexContainer alignItems='center' flexFlow='column'>
+            <ul className={styles.days_row}>
+                {daysRow}
+            </ul>
+            <div style={{ display: `${displayOnly ? '' : 'none'}` }}>
+                {formattedDate}
+            </div>
+            <div style={{ display: `${displayOnly ? 'none' : ''}` }}>
+                <input className={styles.date_input}
+                       ref={inputDateRef}
+                       type='date'
+                       onChange={onInputDateChange} />
+            </div>
+        </FlexContainer>
     );
 }

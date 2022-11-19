@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    overflow-x: scroll;
     padding-top: 4px;
     padding-bottom: calc(2px + env(safe-area-inset-bottom));
     background-color: rgb(246 246 246 / 50%);

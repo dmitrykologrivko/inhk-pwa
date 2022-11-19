@@ -34,7 +34,8 @@ const resources = {
             notAuthorized: 'To see your schedule you must be authorized',
             signIn: 'Sign In',
             signOut: 'Sign Out',
-            signOutMessage: 'Do you want to sign out?'
+            signOutMessage: 'Do you want to sign out?',
+            scheduleFor: 'Schedule for'
         },
         college: {
             title: 'College',
@@ -64,7 +65,9 @@ const resources = {
                 no: 'Нет'
             },
             buttons: {
-                ok: 'OK'
+                ok: 'OK',
+                yes: 'Да',
+                no: 'Нет'
             },
         },
         home: {
@@ -84,7 +87,8 @@ const resources = {
             notAuthorized: 'Чтобы просмотреть ваше расписание вы должны быть авторизованы',
             signIn: 'Авторизоваться',
             signOut: 'Выход',
-            signOutMessage: 'Вы действительно хотите выйти из учетной записи?'
+            signOutMessage: 'Вы действительно хотите выйти из учетной записи?',
+            scheduleFor: 'Расписание для'
         },
         college: {
             title: 'Колледж',
