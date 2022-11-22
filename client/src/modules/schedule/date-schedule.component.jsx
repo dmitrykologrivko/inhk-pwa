@@ -11,6 +11,7 @@ import { DatePicker, DAY_MONDAY } from '../../shared/components/date-picker';
 import { Spinner } from '../../shared/components/spinner';
 import { TryAgain } from '../../shared/components/errors';
 import { Alert, Modal } from '../../shared/components/modals';
+import { toDateISO8601 } from '../../shared/utils';
 import styles from './date-schedule.module.css';
 
 function DateScheduleImpl({ onDate }) {
@@ -79,7 +80,7 @@ function DateScheduleImpl({ onDate }) {
                                     <DatePicker date={data.onDate}
                                                 firstDayOfWeek={DAY_MONDAY}
                                                 displayOnly={false}
-                                                onChange={date => navigate(`/schedule/date/${date.toISOString().split('T')[0]}`)}/>
+                                                onChange={date => navigate(`/schedule/date/${toDateISO8601(date)}`)}/>
                                 </Padding>
                             </Card>
                         </Margin>

@@ -36,8 +36,8 @@ export async function mapSchedule(dto) {
         onDate: new Date(dto.result?.on_date),
         schedule,
         news: [
-            ...dto.result?.all_news,
-            ...dto.result?.news_for_group
+            ...dto.result?.all_news || [],
+            ...dto.result?.news_for_group || []
         ]
     };
 }

@@ -12,6 +12,7 @@ import { PageTitle } from '../../shared/components/titles';
 import { AsyncData } from '../../shared/components/async';
 import { Spinner } from '../../shared/components/spinner';
 import { TryAgain } from '../../shared/components/errors';
+import { toDateISO8601 } from '../../shared/utils';
 import { College } from './college.component';
 import styles from './college-page.module.css';
 import calendarIcon from '../../assets/icons/calendar-day-solid.svg';
@@ -65,7 +66,7 @@ function CollegePageImpl() {
                     <img className={styles.date_icon}
                          src={calendarIcon}
                          alt='Date Icon'
-                         onClick={() => navigate(`/schedule/date/${new Date().toISOString().split('T')[0]}`)}/>
+                         onClick={() => navigate(`/schedule/date/${toDateISO8601(new Date())}`)}/>
                 </FlexContainer>
             </Margin>
 

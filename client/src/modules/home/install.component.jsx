@@ -32,13 +32,13 @@ export function Install() {
                 {t('install.desktop.step1', { ns: 'home' })}
             </div>
             <a href={chromeStep1} target='_blank' rel="noreferrer">
-                <img src={chromeStep1} />
+                <img src={chromeStep1} alt='Desktop step 1' />
             </a>
             <div className={styles.guide__text}>
                 {t('install.desktop.step2', { ns: 'home' })}
             </div>
             <a href={chromeStep2} target='_blank' rel="noreferrer">
-                <img src={chromeStep2} />
+                <img src={chromeStep2} alt='Desktop step 2' />
             </a>
         </div>
     );
@@ -49,19 +49,25 @@ export function Install() {
                 {t('install.ios.step1', { ns: 'home' })}
             </div>
             <a href={iosStep1} target='_blank' rel="noreferrer">
-                <img className={styles.guide__image}  src={iosStep1} />
+                <img className={styles.guide__image}
+                     src={iosStep1}
+                     alt='iOS step 1' />
             </a>
             <div className={styles.guide__text}>
                 {t('install.ios.step2', { ns: 'home' })}
             </div>
             <a href={iosStep2} target='_blank' rel="noreferrer">
-                <img className={styles.guide__image}  src={iosStep2} />
+                <img className={styles.guide__image}
+                     src={iosStep2}
+                     alt='iOS step 2' />
             </a>
             <div className={styles.guide__text}>
                 {t('install.ios.step3', { ns: 'home' })}
             </div>
             <a href={iosStep3} target='_blank' rel="noreferrer">
-                <img className={styles.guide__image}  src={iosStep3} />
+                <img className={styles.guide__image}
+                     src={iosStep3}
+                     alt='iOS step 3'/>
             </a>
         </div>
     );
@@ -72,19 +78,25 @@ export function Install() {
                 {t('install.android.step1', { ns: 'home' })}
             </div>
             <a href={androidStep1} target='_blank' rel="noreferrer">
-                <img className={styles.guide__image}  src={androidStep1} />
+                <img className={styles.guide__image}
+                     src={androidStep1}
+                     alt='Android step 1' />
             </a>
             <div className={styles.guide__text}>
                 {t('install.android.step2', { ns: 'home' })}
             </div>
             <a href={androidStep2} target='_blank' rel="noreferrer">
-                <img className={styles.guide__image}  src={androidStep2} />
+                <img className={styles.guide__image}
+                     src={androidStep2}
+                     alt='Android step 2' />
             </a>
             <div className={styles.guide__text}>
                 {t('install.android.step3', { ns: 'home' })}
             </div>
             <a href={androidStep3} target='_blank' rel="noreferrer">
-                <img className={styles.guide__image}  src={androidStep3} />
+                <img className={styles.guide__image}
+                     src={androidStep3}
+                     alt='Android step 3' />
             </a>
         </div>
     );

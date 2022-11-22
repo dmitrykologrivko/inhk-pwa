@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { FlexContainer } from '../containers';
-import { debounce } from '../../utils';
+import { debounce, toDateISO8601 } from '../../utils';
 import styles from './date-picker.module.css';
 
 export const DAY_SUNDAY = 0;
@@ -82,7 +82,7 @@ export function DatePicker({
     }, DEBOUNCE_DELAY);
 
     useEffect(() => {
-        inputDateRef.current.value = date.toISOString().split('T')[0];
+        inputDateRef.current.value = toDateISO8601(date);
     }, [date]);
 
     const daysRow = getDaysRow(locale, selectedDate, firstDayOfWeek)
