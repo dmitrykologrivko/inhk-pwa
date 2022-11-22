@@ -23,6 +23,23 @@ const resources = {
                 install: 'Install',
                 more: 'More'
             },
+            install: {
+                desktop: {
+                    step1: 'In browsers based on the Chromium project (Google Chrome, Yandex Browser, Brave Browser) ' +
+                        'in the right top window, click the "install" button to install the PWA application on your computer',
+                    step2: 'In the list of installed applications, find iNHK and launch it'
+                },
+                ios: {
+                    step1: 'Open the site in the Safari browser and click the share button',
+                    step2: 'Select "Add to Home Screen"',
+                    step3: 'In the list of installed applications, find iNHK and launch it'
+                },
+                android: {
+                    step1: 'Open the site in the Google Chrome browser and click the menu button',
+                    step2: 'Select "Add to Home Screen"',
+                    step3: 'In the list of installed applications, find iNHK and launch it'
+                }
+            },
             about: {
                 description: 'This application is a "Progressive Web Application" (PWA). PWA is a technology in web ' +
                     'development that visually and functionally transforms a site into an application ' +
@@ -75,6 +92,23 @@ const resources = {
                 title: 'Онлайн-расписание\nНевинномысского химико-технологического колледжа',
                 install: 'Установить',
                 more: 'Подробнее'
+            },
+            install: {
+                desktop: {
+                    step1: 'В браузерах основанных на проекте Chromium (Google Chrome, Yandex Browser, Brave Browser) ' +
+                        'в верхнем правом углу нажмите кнопку "установить" чтобы установить PWA приложение на ваш компьютер',
+                    step2: 'В списке установленных приложений найдите iNHK и запустите его'
+                },
+                ios: {
+                    step1: 'Откройте сайт в браузере Safari и нажмите кнопку поделиться',
+                    step2: 'Выберите пункт "На экран Домой"',
+                    step3: 'В списке установленных приложений найдите iNHK и запустите его'
+                },
+                android: {
+                    step1: 'Откройте сайт в браузере Google Chrome и нажмите кнопку меню',
+                    step2: 'Выберите пункт "Добавить на экран Домой"',
+                    step3: 'В списке установленных приложений найдите iNHK и запустите его'
+                }
             },
             about: {
                 description: 'Данное приложение является "Прогрессивным веб-приложением" (PWA) PWA это технология ' +

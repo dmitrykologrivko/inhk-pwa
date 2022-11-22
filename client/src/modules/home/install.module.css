@@ -1,0 +1,16 @@
+.install {
+    padding: 8px;
+}
+
+.guide {
+    text-align: center;
+}
+
+.guide__text {
+    padding: 8px;
+}
+
+.guide__image {
+    width: 295px;
+    height: 606px;
+}
