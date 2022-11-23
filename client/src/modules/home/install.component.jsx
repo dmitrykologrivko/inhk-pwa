@@ -111,11 +111,13 @@ export function Install() {
     if (selectedPlatform === PLATFORM_ANDROID) {
         currentGuide = androidGuide;
     }
-
+    console.log(navigator)
     return (
         <div id='install'
              className={styles.install}
              style={{ minHeight: `${height}px` }}>
+            <div>Platform: {window.navigator.platform}</div>
+            <div>User Agent: {window.navigator.userAgent}</div>
             <SegmentedControl>
                 <SegmentedControlItem title={PLATFORM_DESKTOP}
                                       onClick={() => setSelectedPlatform(PLATFORM_DESKTOP)} />

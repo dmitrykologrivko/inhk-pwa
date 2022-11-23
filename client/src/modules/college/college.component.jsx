@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SearchInput } from '../../shared/components/search-input';
+import { SearchInput } from '../../shared/components/inputs';
 import { SegmentedControl, SegmentedControlItem } from '../../shared/components/segmented-control';
 import { List } from '../../shared/components/list';
 import { SimpleListItem } from '../../shared/components/list-items';
@@ -28,6 +28,7 @@ export function College(props) {
 
     const [items, setItems] = useState(props.students);
     const [role, setRole] = useState(STUDENT_ROLE);
+    const [searchQuery, setSearchQuery] = useState('');
 
     const onStudentsControlClick = () => {
         setRole(STUDENT_ROLE);
@@ -39,20 +40,6 @@ export function College(props) {
         setItems(props.teachers);
     };
 
-    const onSearchInputChange = (query) => {
-        setItems(() => {
-            let items = [];
-
-            if (role === STUDENT_ROLE) {
-                items = props.students;
-            } else if (role === TEACHER_ROLE) {
-                items = props.teachers;
-            }
-
-            return items.filter(item => item.name.toLowerCase().search(query.toLowerCase()) === 0);
-        });
-    };
-
     const onListItemClick = (object) => {
         if (props.onItemSelected) {
             props.onItemSelected(object, role);
@@ -62,8 +49,7 @@ export function College(props) {
     return (
         <div>
             <Margin bottom={10}>
-                <SearchInput placeholder={t('search')}
-                             onInputChange={onSearchInputChange}/>
+                <SearchInput onInputChange={setSearchQuery}/>
             </Margin>
             <Margin bottom={10}>
                 <SegmentedControl>
@@ -73,7 +59,8 @@ export function College(props) {
                                           onClick={onTeachersControlClick}/>
                 </SegmentedControl>
             </Margin>
-            <CollegeList items={items} onItemClicked={(_, object) => onListItemClick(object)}/>
+            <CollegeList items={items.filter(item => item.name.toLowerCase().search(searchQuery.toLowerCase()) === 0)}
+                         onItemClicked={(_, object) => onListItemClick(object)}/>
         </div>
     );
 }

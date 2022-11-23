@@ -4,7 +4,6 @@ import {initReactI18next} from 'react-i18next';
 const resources = {
     en: {
         translation: {
-            search: 'Search',
             schedule: 'Schedule',
             college: 'College',
             favorites: 'Favorites',
@@ -14,8 +13,12 @@ const resources = {
             buttons: {
                 ok: 'OK',
                 yes: 'Yes',
-                no: 'No'
+                no: 'No',
+                tryAgain: 'Try Again'
             },
+            inputs: {
+                search: 'Search',
+            }
         },
         home: {
             start: {
@@ -72,7 +75,6 @@ const resources = {
     },
     ru: {
         translation: {
-            search: 'Search',
             schedule: 'Расписание',
             college: 'Колледж',
             favorites: 'Избранное',
@@ -84,8 +86,12 @@ const resources = {
             buttons: {
                 ok: 'OK',
                 yes: 'Да',
-                no: 'Нет'
+                no: 'Нет',
+                tryAgain: 'Повторить'
             },
+            inputs: {
+                search: 'Поиск'
+            }
         },
         home: {
             start: {
