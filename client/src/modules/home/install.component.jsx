@@ -20,11 +20,24 @@ const PLATFORM_DESKTOP = 'Desktop';
 const PLATFORM_IOS = 'iOS';
 const PLATFORM_ANDROID = 'Android';
 
+const ISO_PLATFORMS = ['iPhone', 'iPad', 'iPod'];
+
 export function Install() {
     const {t} = useTranslation();
     const { height } = useWindowSize();
 
-    const [selectedPlatform, setSelectedPlatform] = useState(PLATFORM_DESKTOP);
+    const [selectedPlatform, setSelectedPlatform] = useState(() => {
+        const userAgent = window.navigator.userAgent;
+
+        if (ISO_PLATFORMS.find(item => userAgent.includes(item))) {
+            return PLATFORM_IOS;
+        }
+        if (userAgent.includes(PLATFORM_ANDROID)) {
+            return PLATFORM_ANDROID;
+        }
+
+        return PLATFORM_DESKTOP;
+    });
 
     const desktopGuide = (
         <div className={styles.guide}>
@@ -101,24 +114,26 @@ export function Install() {
         </div>
     );
 
+    let selectedIndex = 0;
     let currentGuide;
     if (selectedPlatform === PLATFORM_DESKTOP) {
+        selectedIndex = 0;
         currentGuide = desktopGuide;
     }
     if (selectedPlatform === PLATFORM_IOS) {
+        selectedIndex = 1;
         currentGuide = iosGuide;
     }
     if (selectedPlatform === PLATFORM_ANDROID) {
+        selectedIndex = 2;
         currentGuide = androidGuide;
     }
-    console.log(navigator)
+
     return (
         <div id='install'
              className={styles.install}
              style={{ minHeight: `${height}px` }}>
-            <div>Platform: {window.navigator.platform}</div>
-            <div>User Agent: {window.navigator.userAgent}</div>
-            <SegmentedControl>
+            <SegmentedControl selectedIndex={selectedIndex}>
                 <SegmentedControlItem title={PLATFORM_DESKTOP}
                                       onClick={() => setSelectedPlatform(PLATFORM_DESKTOP)} />
                 <SegmentedControlItem title={PLATFORM_IOS}
