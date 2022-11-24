@@ -20,6 +20,7 @@ export function Start() {
             <h4 className={styles.title}>
                 {t('start.title', { ns: 'home' })}
             </h4>
+            <div>v1</div>
             <div>
                 <a href='/#install' className={styles.install_button}>
                     <PrimaryButton title={t('start.install', { ns: 'home' })}/>
