@@ -9,7 +9,6 @@ Chemical Technology
 
 <img src="./docs/arts/app_1.png" alt="App 1" width="320" height="720" />
 <img src="./docs/arts/app_2.png" alt="App 2" width="320" height="720" />
-<br />
 <img src="./docs/arts/app_3.png" alt="App 3" width="320" height="720" />
 <img src="./docs/arts/app_4.png" alt="App 4" width="320" height="720" />
 
