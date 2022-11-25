@@ -8,13 +8,13 @@ functionally transforms a site into an application (mobile application in a brow
 
 [Web demo](https://inhk.devcraft.ru)
 
-![](./docs/arts/app_1.jpg)
+![](./docs/arts/app_1.png)
 
-![](./docs/arts/app_2.jpg)
+![](./docs/arts/app_2.png)
 
-![](./docs/arts/app_3.jpg)
+![](./docs/arts/app_3.png)
 
-![](./docs/arts/app_4.jpg)
+![](./docs/arts/app_4.png)
 
 ## Setting Up
 

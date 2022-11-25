@@ -7,10 +7,11 @@
     "npm": "^=8.11.0"
   },
   "scripts": {
-    "postinstall": "npm --prefix client install && npm --prefix backend install && npm run build",
-    "clean": "rm -r -f backend/public client/build",
-    "build": "npm run clean && npm run --prefix client build && mkdir backend/public && mv client/build/* backend/public",
-    "deploy": "rm -r -f client/node_modules",
+    "postinstall": "npm --prefix client install && npm --prefix backend install",
+    "prebuild": "rm -r -f backend/public client/build",
+    "build": "npm run --prefix client build",
+    "postbuild": "mkdir backend/public && mv client/build/* backend/public",
+    "deploy": "npm run build && rm -r -f client/node_modules",
     "start": "npm run --prefix backend start",
     "start-dev": "npm run --prefix backend start | npm run --prefix client start"
   },
