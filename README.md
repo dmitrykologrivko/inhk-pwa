@@ -1,8 +1,7 @@
 # inhk-pwa
 
-## Online schedule of the Nevinnomyssk College of Chemical Technology
-This application is a "Progressive Web Application" (PWA). PWA is a technology in web development that visually and 
-functionally transforms a site into an application (mobile application in a browser).
+This application is a "Progressive Web Application" (PWA) for the online schedule of the Nevinnomyssk College of 
+Chemical Technology
 
 ## Demo
 
