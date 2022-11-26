@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": ">=16.15.1",
-    "npm": "^=8.11.0"
+    "node": ">=18.12.1",
+    "npm": "^=8.19.2"
   },
   "scripts": {
     "postinstall": "npm --prefix client install && npm --prefix backend install",
