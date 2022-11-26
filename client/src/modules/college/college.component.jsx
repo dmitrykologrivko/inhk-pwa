@@ -59,7 +59,10 @@ export function College(props) {
                                           onClick={onTeachersControlClick}/>
                 </SegmentedControl>
             </Margin>
-            <CollegeList items={items.filter(item => item.name.toLowerCase().search(searchQuery.toLowerCase()) === 0)}
+            <CollegeList items={items.filter(item => {
+                console.log(item)
+                return item.name?.toLowerCase().search(searchQuery.toLowerCase()) === 0;
+            })}
                          onItemClicked={(_, object) => onListItemClick(object)}/>
         </div>
     );
